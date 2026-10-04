@@ -1,0 +1,9 @@
+services:
+  conexiaplus-psicologico:
+    build: .
+    container_name: conexiaplus-psicologico
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8787:8787"

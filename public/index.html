@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ConexIA+ PIE · Informe de Evaluación Psicológica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F6FB; --surface:#FFFFFF; --ink:#141A33; --ink-2:#4A5170; --ink-3:#8389A3;
+  --line:#E3E5F0; --line-2:#EEF0F7;
+  --indigo:#4F46E5; --indigo-ink:#FFFFFF; --lilac:#EFEEFF; --lilac-2:#DCD9FF;
+  --band:#141A33; --band-ink:#E8E9F5; --band-ink-2:#9EA4C4;
+  --ok:#2F7D55; --ok-soft:#E3F3EA; --mid:#3F5BA8; --mid-soft:#E7ECFA;
+  --warn:#A8671A; --warn-soft:#FBF0DC; --alert:#B43A55; --alert-soft:#FBE4EA;
+  --paper:#FFFFFF; --paper-ink:#1B1B1B;
+  --r-lg:18px; --r-md:12px; --r-sm:8px;
+  font-size:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1224; --surface:#171B31; --ink:#E9EAF5; --ink-2:#B1B5CD; --ink-3:#7C82A0;
+    --line:#2A2F4A; --line-2:#22273F; --indigo:#8B83FF; --indigo-ink:#0F1224; --lilac:#23264A; --lilac-2:#34386A;
+    --band:#0A0C1A; --ok:#6CC495; --ok-soft:#1B3328; --mid:#8FA6EA; --mid-soft:#1F2744;
+    --warn:#E3AE5E; --warn-soft:#3A2D18; --alert:#EE8AA0; --alert-soft:#3D1D27;
+    --paper:#FFFFFF; --paper-ink:#1B1B1B;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1224; --surface:#171B31; --ink:#E9EAF5; --ink-2:#B1B5CD; --ink-3:#7C82A0;
+  --line:#2A2F4A; --line-2:#22273F; --indigo:#8B83FF; --indigo-ink:#0F1224; --lilac:#23264A; --lilac-2:#34386A;
+  --band:#0A0C1A; --ok:#6CC495; --ok-soft:#1B3328; --mid:#8FA6EA; --mid-soft:#1F2744;
+  --warn:#E3AE5E; --warn-soft:#3A2D18; --alert:#EE8AA0; --alert-soft:#3D1D27;
+}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
+*,*::before,*::after{box-sizing:inherit;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+button,input,select,textarea{font:inherit;color:inherit;}
+button{cursor:pointer;}
+:focus-visible{outline:2.5px solid var(--indigo);outline-offset:2px;}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+
+.wrap{max-width:1180px;margin:0 auto;padding:22px 20px 80px;}
+.band{background:var(--band);color:var(--band-ink);border-radius:var(--r-lg);padding:22px 26px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+.band h1{margin:0;font-size:1.45rem;font-weight:800;letter-spacing:-0.02em;}
+.band p{margin:4px 0 0;color:var(--band-ink-2);font-size:0.9rem;}
+.band .acts{display:flex;gap:8px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 15px;border-radius:10px;font-weight:700;font-size:0.88rem;}
+.btn:hover{border-color:var(--indigo);}
+.btn.primary{background:var(--indigo);border-color:var(--indigo);color:var(--indigo-ink);}
+.btn.primary:hover{filter:brightness(1.07);}
+.btn.ghost{background:transparent;border-color:transparent;}
+.btn.ghost:hover{background:var(--lilac);}
+.band .btn{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.14);color:var(--band-ink);}
+.band .btn:hover{border-color:rgba(255,255,255,0.4);}
+.band .btn.primary{background:var(--indigo);border-color:var(--indigo);color:#fff;}
+.btn:disabled{opacity:.5;cursor:not-allowed;}
+.btn.sm{padding:6px 11px;font-size:0.8rem;}
+
+/* pasos */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 20px;}
+.step{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-md);padding:12px 14px;text-align:left;display:flex;gap:11px;align-items:center;}
+.step .n{width:28px;height:28px;border-radius:50%;background:var(--line-2);color:var(--ink-2);display:grid;place-items:center;font-weight:800;font-size:0.85rem;flex-shrink:0;}
+.step b{display:block;font-size:0.88rem;}
+.step small{display:block;color:var(--ink-3);font-size:0.74rem;}
+.step.on{border-color:var(--indigo);background:var(--lilac);}
+.step.on .n{background:var(--indigo);color:var(--indigo-ink);}
+.step.done .n{background:var(--ok-soft);color:var(--ok);}
+@media (max-width:620px){.steps{grid-template-columns:1fr;}}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 24px;}
+.panel + .panel{margin-top:16px;}
+.panel h2{margin:0 0 4px;font-size:1.12rem;font-weight:800;letter-spacing:-0.01em;}
+.panel .lead{margin:0 0 16px;color:var(--ink-2);font-size:0.88rem;}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.fld{margin-bottom:14px;}
+.fld > label, .lbl{display:block;font-size:0.8rem;font-weight:700;color:var(--ink-2);margin-bottom:6px;}
+input[type=text],input[type=date],input[type=number],select,textarea{width:100%;padding:9px 11px;border:1.5px solid var(--line);border-radius:9px;background:var(--surface);}
+input:focus,select:focus,textarea:focus{border-color:var(--indigo);outline:none;}
+textarea{min-height:70px;resize:vertical;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 13px;font-size:0.82rem;font-weight:600;color:var(--ink-2);}
+.chip:hover{border-color:var(--lilac-2);}
+.chip.sel{background:var(--indigo);border-color:var(--indigo);color:var(--indigo-ink);}
+.hint{font-size:0.78rem;color:var(--ink-3);margin-top:6px;}
+.agebox{display:inline-flex;gap:8px;align-items:center;background:var(--lilac);color:var(--indigo);padding:6px 12px;border-radius:999px;font-weight:700;font-size:0.84rem;}
+
+/* catálogo de pruebas */
+.areas{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px;}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;}
+.tcard{position:relative;text-align:left;border:1.5px solid var(--line);background:var(--surface);border-radius:var(--r-md);padding:13px 14px 12px;min-height:104px;}
+.tcard:hover{border-color:var(--lilac-2);}
+.tcard .ar{font-size:0.7rem;font-weight:700;color:var(--ink-3);}
+.tcard b{display:block;font-size:0.98rem;margin-top:3px;}
+.tcard span.s{display:block;font-size:0.78rem;color:var(--ink-2);}
+.tcard .age{font-size:0.72rem;color:var(--ink-3);margin-top:6px;}
+.tcard .st{display:inline-block;margin-top:7px;padding:2px 9px;border-radius:999px;font-size:0.7rem;font-weight:800;}
+.tcard.sel{border-color:var(--warn);}
+.tcard.sel .st{background:var(--warn-soft);color:var(--warn);}
+.tcard.ok{border-color:var(--ok);background:var(--ok-soft);}
+.tcard.ok .st{background:var(--ok);color:#fff;}
+.tcard.act{border-color:var(--indigo);background:var(--lilac);box-shadow:0 0 0 3px var(--lilac-2);}
+.tcard.act .st{background:var(--indigo);color:var(--indigo-ink);}
+.tbox{scroll-margin-top:16px;}
+.tbox .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 16px;border-top:1px solid var(--line);background:var(--bg);}
+.curow{display:grid;grid-template-columns:1fr 110px 170px auto;gap:8px;align-items:center;padding:5px 0;}
+@media (max-width:620px){.curow{grid-template-columns:1fr 1fr;}}
+.tcard.out{opacity:.55;}
+.tcard.out .age{color:var(--warn);font-weight:700;}
+
+.tbox{border:1.5px solid var(--line);border-radius:var(--r-md);margin-top:14px;overflow:hidden;}
+.tbox > header{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 16px;background:var(--lilac);}
+.tbox > header b{font-size:0.98rem;}
+.tbox > header small{color:var(--ink-2);display:block;font-size:0.78rem;}
+.tbox .body{padding:14px 16px;}
+.srow{display:grid;grid-template-columns:1fr 110px 190px;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line-2);}
+.srow:last-child{border-bottom:none;}
+.srow .nm{font-size:0.87rem;}
+.srow .nm small{color:var(--ink-3);font-size:0.74rem;display:block;}
+.srow input{padding:6px 9px;}
+.srow.pd{grid-template-columns:1fr 80px 90px 190px;}
+.srow .pdin{font-size:0.82rem;}
+@media (max-width:620px){.srow.pd{grid-template-columns:1fr 70px 80px;}}
+.shead{display:grid;grid-template-columns:1fr 80px 90px 190px;gap:10px;font-size:0.72rem;font-weight:800;color:var(--ink-3);padding:2px 0 4px;}
+@media (max-width:620px){.shead{grid-template-columns:1fr 70px 80px;}.shead span:last-child{display:none;}}
+@media (max-width:620px){.srow{grid-template-columns:1fr 90px;}.srow .cl{grid-column:1/-1;}}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:0.74rem;font-weight:700;}
+.p0{background:var(--ok-soft);color:var(--ok);} .p1{background:var(--mid-soft);color:var(--mid);}
+.p2{background:var(--warn-soft);color:var(--warn);} .p3{background:var(--alert-soft);color:var(--alert);}
+.pn{background:var(--line-2);color:var(--ink-3);}
+details.sub{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px;}
+details.sub summary{cursor:pointer;font-weight:700;font-size:0.84rem;color:var(--indigo);}
+
+/* pauta */
+.oitem{display:grid;grid-template-columns:230px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line-2);align-items:start;}
+.oitem:last-child{border-bottom:none;}
+.oitem .q{font-weight:700;font-size:0.88rem;}
+.oitem .q small{display:block;color:var(--ink-3);font-weight:500;font-size:0.75rem;}
+@media (max-width:720px){.oitem{grid-template-columns:1fr;}}
+.ogroup{font-weight:800;font-size:0.95rem;margin:18px 0 4px;color:var(--indigo);}
+/* pauta en listas */
+.ogrp{margin-top:18px;}
+.ogrp-h{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;background:var(--lilac);border-radius:10px;}
+.ogrp-h b{font-size:0.95rem;color:var(--indigo);}
+.ogrp-h span{font-size:0.76rem;font-weight:700;color:var(--ink-2);background:var(--surface);padding:3px 10px;border-radius:999px;}
+.olist{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:12px;}
+.ocard{border:1.5px solid var(--line);border-radius:12px;padding:12px 12px 8px;background:var(--surface);}
+.ocard.done{border-color:var(--lilac-2);}
+.ocard h4{margin:0 0 8px;font-size:0.86rem;font-weight:800;display:flex;justify-content:space-between;gap:8px;}
+.ocard h4 small{font-weight:600;color:var(--ink-3);font-size:0.72rem;}
+.orow{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;background:none;border:none;border-radius:8px;padding:6px 8px;font-size:0.84rem;color:var(--ink-2);}
+.orow:hover{background:var(--bg);}
+.orow .dot{flex-shrink:0;width:16px;height:16px;margin-top:2px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;}
+.orow.sq .dot{border-radius:4px;}
+.orow[aria-checked="true"]{background:var(--lilac);color:var(--ink);font-weight:700;}
+.orow[aria-checked="true"] .dot{border-color:var(--indigo);background:var(--indigo);}
+.orow[aria-checked="true"] .dot::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--indigo-ink);}
+.orow.sq[aria-checked="true"] .dot::after{content:'✓';width:auto;height:auto;background:none;color:var(--indigo-ink);font-size:0.65rem;font-weight:900;line-height:1;}
+.olist.two{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px 12px;}
+
+/* hoja del informe */
+.docbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+.sheetwrap{overflow-x:auto;padding:6px 0 10px;}
+.sheet{background:var(--paper);color:var(--paper-ink);width:100%;max-width:816px;margin:0 auto;padding:64px 72px;border-radius:4px;box-shadow:0 1px 3px rgba(20,26,51,.12),0 16px 40px rgba(20,26,51,.12);font-family:Arial,Helvetica,sans-serif;font-size:11pt;line-height:1.5;}
+@media (max-width:700px){.sheet{padding:28px 22px;}}
+.sheet h1{font-size:14pt;text-align:center;margin:0 0 2px;font-weight:700;letter-spacing:0.02em;}
+.sheet .inst{text-align:center;font-size:9.5pt;color:#555;margin-bottom:18px;}
+.sheet h3{font-size:11pt;margin:18px 0 6px;padding:4px 8px;background:#EDEBFF;border-left:4px solid #4F46E5;}
+.sheet h4{font-size:10.5pt;margin:12px 0 4px;}
+.sheet table{width:100%;border-collapse:collapse;font-size:10pt;margin:4px 0 8px;}
+.sheet td,.sheet th{border:1px solid #B9B9C9;padding:4px 7px;vertical-align:top;text-align:left;}
+.sheet th{background:#F3F2FF;font-weight:700;}
+.sheet p{margin:0 0 7px;text-align:justify;}
+.sheet ul{margin:2px 0 8px 18px;padding:0;}
+.sheet [contenteditable]{outline:none;border-radius:3px;}
+.sheet [contenteditable]:hover{background:#FAF9FF;}
+.sheet [contenteditable]:focus{background:#F5F4FF;box-shadow:0 0 0 2px #C9C5FF;}
+.sheet .firma{margin-top:48px;text-align:center;}
+.sheet .firma .ln{width:260px;border-top:1px solid #333;margin:0 auto 4px;}
+.sheet .nota{font-size:8.5pt;color:#666;margin-top:18px;}
+
+.navfoot{display:flex;justify-content:space-between;margin-top:18px;gap:10px;}
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:10px;font-size:0.86rem;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s;z-index:90;}
+.toast.show{opacity:1;}
+.drawer{position:fixed;inset:0;background:rgba(10,12,26,.45);display:flex;justify-content:flex-end;z-index:80;}
+.drawer > div{width:min(420px,100%);height:100%;background:var(--surface);padding:22px;overflow-y:auto;padding-top:calc(22px + env(safe-area-inset-top,0px));}
+.ditem{border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin-top:10px;display:flex;justify-content:space-between;gap:8px;align-items:center;}
+.ditem b{display:block;font-size:0.9rem;}
+.ditem small{color:var(--ink-3);font-size:0.76rem;}
+.empty{color:var(--ink-3);font-size:0.88rem;padding:14px 0;}
+.warnbox{background:var(--warn-soft);color:var(--warn);border-radius:10px;padding:10px 13px;font-size:0.84rem;font-weight:600;margin-bottom:12px;}
+@media print{
+  body{background:#fff;} .wrap > *:not(#main){display:none!important;} #main > *:not(.sheetwrap){display:none!important;}
+  .sheet{box-shadow:none;padding:0;max-width:none;} .sheetwrap{padding:0;}
+}
+</style>
+</head>
+<body>
+<script src="conexia-ai-config.js"></script>
+<div class="wrap">
+  <div class="band">
+    <div>
+      <p style="margin:0 0 2px;font-weight:700;color:var(--band-ink-2)">ConexIA+ PIE</p>
+      <h1>Informe de Evaluación Psicológica</h1>
+      <p>Ingresa los puntajes de los instrumentos, completa la pauta de observación y el sistema redacta el informe.</p>
+    </div>
+    <div class="acts">
+      <button class="btn" id="bNuevo">Nuevo informe</button>
+      <button class="btn" id="bGuardados">Informes guardados</button>
+    </div>
+  </div>
+  <nav class="steps" id="steps"></nav>
+  <main id="main"></main>
+</div>
+<div class="toast" id="toast"></div>
+<div id="overlay"></div>
+
+<script>
+/* ============================================================
+   DATOS: clasificaciones
+   ============================================================ */
+const CL = {
+  // Wechsler (M=100, DE=15)
+  ci(v){ if(v>=130) return ['Extremadamente alto',0]; if(v>=120) return ['Muy alto',0]; if(v>=110) return ['Medio alto',0];
+         if(v>=90) return ['Promedio',1]; if(v>=80) return ['Medio bajo',2]; if(v>=70) return ['Muy bajo',3]; return ['Extremadamente bajo',3]; },
+  // WISC-IV (clasificación cualitativa de su manual)
+  ci4(v){ if(v>=130) return ['Muy superior',0]; if(v>=120) return ['Superior',0]; if(v>=110) return ['Normal alto',0]; if(v>=90) return ['Medio',1]; if(v>=80) return ['Normal bajo',2]; if(v>=70) return ['Inferior',3]; return ['Muy bajo',3]; },
+  // escalares (M=10, DE=3)
+  esc(v){ if(v>=17) return ['Muy superior',0]; if(v>=14) return ['Sobre el promedio',0]; if(v>=7) return ['Promedio',1]; if(v>=4) return ['Bajo el promedio',2]; return ['Muy inferior',3]; },
+  // ABAS-II áreas de habilidad (M=10, DE=3)
+  escAbas(v){ if(v>=17) return ['Muy alta',0]; if(v>=15) return ['Alta',0]; if(v>=13) return ['Media-alta',0]; if(v>=8) return ['Media',1]; if(v>=6) return ['Media-baja',2]; if(v>=4) return ['Baja',3]; return ['Muy baja',3]; },
+  // conducta adaptativa (ABAS / ICAP estándar)
+  // Conducta adaptativa: categorías del perfil ABAS-II (TEA Ediciones, adaptación española y chilena)
+  ca(v){ if(v>=130) return ['Muy alta',0]; if(v>=120) return ['Alta',0]; if(v>=110) return ['Media-alta',0]; if(v>=90) return ['Media',1];
+         if(v>=80) return ['Media-baja',2]; if(v>=70) return ['Baja',3]; return ['Muy baja',3]; },
+  // Vineland-II / Vineland-3 (niveles adaptativos del manual)
+  vin(v){ if(v>=130) return ['Alto',0]; if(v>=115) return ['Moderadamente alto',0]; if(v>=86) return ['Adecuado',1]; if(v>=71) return ['Moderadamente bajo',2]; return ['Bajo',3]; },
+  vinV(v){ if(v>=21) return ['Alto',0]; if(v>=18) return ['Moderadamente alto',0]; if(v>=13) return ['Adecuado',1]; if(v>=10) return ['Moderadamente bajo',2]; return ['Bajo',3]; },
+  vinMal(v){ if(v>=21) return ['Clínicamente significativo',3]; if(v>=18) return ['Elevado',2]; return ['Promedio',1]; },
+  // Escala de Madurez Social de Vineland (Doll; adaptación chilena Otero): categorías del cociente social
+  csVsms(v){ if(v>=110) return ['Madurez social alta',0]; if(v>=90) return ['Madurez social normal',1]; if(v>=80) return ['Madurez social normal bajo',2]; if(v>=70) return ['Madurez social inferior',3]; return ['Madurez social deficiente',3]; },
+  // SENA
+  tProbSena(v){ if(v>=70) return ['Clínicamente significativo',3]; if(v>=60) return ['Zona de precaución',2]; return ['Dentro de lo esperado',1]; },
+  tRecSena(v){ if(v<=29) return ['Muy bajo, significativo',3]; if(v<=39) return ['Bajo, zona de precaución',2]; if(v>=60) return ['Alto (fortaleza)',0]; return ['Dentro de lo esperado',1]; },
+  // escalas T de problemas (alto = dificultad)
+  tProb(v){ if(v>=70) return ['Clínicamente significativo',3]; if(v>=60) return ['En riesgo',2]; return ['Dentro de lo esperado',1]; },
+  // escalas T adaptativas / recursos (bajo = dificultad)
+  tRec(v){ if(v<=30) return ['Clínicamente significativo',3]; if(v<=40) return ['En riesgo',2]; if(v>=60) return ['Alto (fortaleza)',0]; return ['Dentro de lo esperado',1]; },
+  tConn(v){ if(v>=70) return ['Muy elevado',3]; if(v>=65) return ['Elevado',3]; if(v>=60) return ['Promedio alto (ligeramente elevado)',2]; if(v>=40) return ['Promedio',1]; return ['Bajo (menos preocupaciones de lo habitual)',1]; },
+  tBrief(v){ if(v>=70) return ['Clínicamente elevado',3]; if(v>=65) return ['Potencialmente elevado clínicamente',3]; if(v>=60) return ['Ligeramente elevado',2]; return ['Dentro de lo esperado',1]; },
+  tTadi(v){ if(v>=60) return ['Avanzado',0]; if(v>=40) return ['Normal',1]; if(v>=30) return ['Riesgo',2]; return ['Retraso',3]; },
+  tTadi2(v){ if(v>=60) return ['Avanzado',0]; if(v>=50) return ['Normal',1]; if(v>=40) return ['Alerta',2]; if(v>=30) return ['Riesgo',2]; return ['Retraso',3]; },
+  tTepsi(v){ if(v>=40) return ['Normal',1]; if(v>=30) return ['Riesgo',2]; return ['Retraso',3]; },
+  tPiers(v){ if(v>=70) return ['Muy alto',0]; if(v>=60) return ['Alto',0]; if(v>=56) return ['Sobre el promedio',1]; if(v>=45) return ['Promedio',1]; if(v>=40) return ['Promedio bajo (dentro de lo normal)',1]; if(v>=30) return ['Bajo',2]; return ['Muy bajo',3]; },
+  percRaven(v){ if(v>=95) return ['Rango I — Intelectualmente superior',0]; if(v>=90) return ['Rango II+ — Superior al término medio',0]; if(v>=75) return ['Rango II — Superior al término medio',0];
+                if(v>=50) return ['Rango III+ — Término medio',1]; if(v>25) return ['Rango III- — Término medio',1]; if(v>10) return ['Rango IV — Inferior al término medio',2]; if(v>5) return ['Rango IV- — Inferior al término medio',2]; return ['Rango V — Intelectualmente deficiente',3]; },
+  deca(v){ if(v>=10) return ['Muy alto',0]; if(v>=8) return ['Alto',0]; if(v>=7) return ['Medio alto',0]; if(v>=5) return ['Medio',1]; if(v>=4) return ['Medio bajo',2]; if(v>=3) return ['Bajo',2]; return ['Muy bajo',3]; },
+  mchat(v){ if(v>=8) return ['Riesgo alto',3]; if(v>=3) return ['Riesgo medio (aplicar entrevista de seguimiento)',2]; return ['Riesgo bajo',1]; },
+  adosComp(v){ if(v>=8) return ['Nivel alto de síntomas',3]; if(v>=5) return ['Nivel moderado de síntomas',3]; if(v>=3) return ['Nivel bajo de síntomas',2]; return ['Evidencia mínima o nula de síntomas',1]; },
+  cut(v,c){ return v>=c ? ['Sobre el punto de corte',3] : ['Bajo el punto de corte',1]; },
+  raw(){ return ['Puntaje directo',-1]; },
+};
+const TIPOS = {
+  ci:{lab:'CI / Índice', min:40, max:160}, ci4:{lab:'CI / Índice', min:40, max:160}, escAbas:{lab:'Escalar', min:1, max:19}, tProbSena:{lab:'T', min:20, max:120}, tRecSena:{lab:'T', min:10, max:90}, esc:{lab:'Escalar', min:1, max:19}, ca:{lab:'Puntuación típica', min:40, max:160},
+  tProb:{lab:'T', min:20, max:120}, tRec:{lab:'T', min:10, max:90}, tConn:{lab:'T', min:20, max:90}, tBrief:{lab:'T', min:30, max:120},
+  tTadi:{lab:'T', min:10, max:90}, tTadi2:{lab:'T', min:10, max:90}, tTepsi:{lab:'T', min:10, max:90}, tPiers:{lab:'T', min:10, max:90},
+  icapcl:{lab:'Puntaje directo', min:0, max:30}, vin:{lab:'Puntuación típica', min:20, max:160}, csVsms:{lab:'Cociente social', min:1, max:200}, vinV:{lab:'Escala v', min:1, max:24}, vinMal:{lab:'Escala v', min:1, max:24}, percRaven:{lab:'Percentil', min:1, max:99},
+  deca:{lab:'Decatipo', min:1, max:10}, mchat:{lab:'Directo', min:0, max:20}, adosComp:{lab:'Puntaje comparativo', min:1, max:10},
+  cut:{lab:'Directo', min:0, max:200}, raw:{lab:'Directo', min:0, max:999},
+};
+function effE(t,e){ if(t && t.id==='scq' && e.t==='cut' && (((S.tests.scq||{}).x||{}).forma||'').startsWith('Forma B')) return {...e, t:'raw'}; if(t && t.id==='tadi' && e.t==='tTadi' && ((S.tests.tadi||{}).x||{}).ed==='TADI-2') return {...e, t:'tTadi2'}; return e; }
+// ICAP versión chilena (Vera-Bachmann, Gálvez-Nieto, Álvarez y Trizano, FONIDE F911407). Tabla 1: baremos centílicos; punto de corte = centil 20.
+const ICAPCL = {
+  cents:[5,10,20,25,30,40,50,60,70,75,80,90,95],
+  dm:{n:'Destrezas motoras (DM)', max:21, corte:18, v:[12,15,18,18,19,21,21,21,21,21,21,21,21]},
+  dsc:{n:'Destrezas sociales y comunicativas (DSC)', max:15, corte:12, v:[8,10,12,12,13,14,14,15,15,15,15,15,15]},
+  dvp:{n:'Destrezas de la vida personal (DVP)', max:15, corte:13, v:[9,11,13,14,14,15,15,15,15,15,15,15,15]},
+  dvd:{n:'Destrezas de la vida diaria (DVD)', max:30, corte:5, v:[1,3,5,6,7,10,12,15,18,20,21,27,30]},
+  conductas:[['auto','Comportamiento autolesivo'],['hetero','Heteroagresividad'],['destr','Destrucción de objetos'],['disr','Conducta disruptiva'],['habit','Hábitos atípicos y repetitivos'],['ofens','Conducta social ofensiva'],['retra','Retraimiento o falta de atención'],['nocol','Conductas no colaboradoras']],
+  frec:['Nunca','Menos de una vez al mes','De una a tres veces al mes','De una a seis veces por semana','De una a diez veces al día','Una o más veces en una hora'],
+  grav:['No es grave','Ligeramente grave','Medianamente grave','Muy grave','Extremadamente grave'],
+};
+function icapclCentil(id, raw){
+  const s=ICAPCL[id], C=ICAPCL.cents; const eq=C.filter((c,i)=>s.v[i]===raw);
+  if(eq.length){ if(raw===s.max) return `centil ${eq[0]} o superior`; return eq.length>1? `centiles ${eq[0]} a ${eq[eq.length-1]}` : `centil ${eq[0]}`; }
+  let below=null, above=null; C.forEach((c,i)=>{ if(s.v[i]<raw) below=c; if(above==null && s.v[i]>raw) above=c; });
+  if(below==null) return 'inferior al centil 5'; if(above==null) return 'superior al centil 95'; return `entre los centiles ${below} y ${above}`;
+}
+function clasif(e, v){
+  if(v===''||v===null||v===undefined||isNaN(v)) return null;
+  if(e.t==='icapcl'){ const s=ICAPCL[e.id]; return v<=s.corte? {txt:`Bajo el punto de corte (${icapclCentil(e.id,v)})`, lvl:3} : {txt:`Sobre el punto de corte (${icapclCentil(e.id,v)})`, lvl:1}; }
+  const f=CL[e.t]; const r = e.t==='cut' ? f(v,e.c) : f(v);
+  return {txt:r[0], lvl:r[1]};
+}
+
+/* ============================================================
+   CATÁLOGO DE PRUEBAS
+   edad en meses [min,max]
+   ============================================================ */
+const IDX = {
+  ICV:{n:'Índice de Comprensión Verbal (ICV)', d:'la capacidad para formar conceptos verbales, razonar con información verbal y expresar conocimientos adquiridos', aula:'comprender explicaciones orales extensas, vocabulario académico y enunciados de problemas'},
+  IVE:{n:'Índice Visoespacial (IVE)', d:'el análisis y la síntesis de información visual y las relaciones espaciales', aula:'realizar tareas geométricas, leer gráficos y mapas, y organizar espacialmente su trabajo'},
+  IRF:{n:'Índice de Razonamiento Fluido (IRF)', d:'el razonamiento lógico y la detección de relaciones entre conceptos abstractos', aula:'resolver problemas nuevos, inferir reglas y generalizar lo aprendido'},
+  IRP:{n:'Índice de Razonamiento Perceptivo (IRP)', d:'el razonamiento no verbal y la organización perceptiva', aula:'resolver problemas nuevos a partir de información visual y generalizar lo aprendido'},
+  IMT:{n:'Índice de Memoria de Trabajo (IMT)', d:'la capacidad para retener y manipular información de forma temporal', aula:'seguir instrucciones de varios pasos, realizar cálculo mental y tomar apuntes'},
+  IVP:{n:'Índice de Velocidad de Procesamiento (IVP)', d:'la rapidez y precisión para procesar información visual simple', aula:'copiar desde la pizarra y completar tareas en tiempos acotados'},
+  CIT:{n:'Coeficiente Intelectual Total (CIT)', d:'el funcionamiento intelectual general'},
+};
+const ix = k => ({id:k, n:IDX[k].n, t:'ci', idx:k});
+const ix4 = k => ({id:k, n:IDX[k].n, t:'ci4', idx:k});
+const sub = names => names.map(n=>({id:'s_'+n.replace(/\W+/g,'_'), n, t:'esc', sub:true}));
+const T = (id,n,t,extra={}) => ({id, n, t, ...extra});
+
+const TESTS = [
+  // ---------- Cognitivo ----------
+  {id:'wppsi4', area:'Cognitivo', nombre:'WPPSI-IV', sub:'Escala Wechsler de inteligencia preescolar', edad:[30,91], wechsler:true,
+   desc:'La Escala de Inteligencia de Wechsler para Preescolar y Primaria (WPPSI-IV) evalúa el funcionamiento cognitivo de niños y niñas entre 2 años 6 meses y 7 años 7 meses.',
+   esc:[ix('CIT'),ix('ICV'),ix('IVE'),ix('IRF'),ix('IMT'),ix('IVP'), ...sub(['Información','Semejanzas','Vocabulario','Comprensión','Cubos','Rompecabezas','Matrices','Conceptos','Reconocimiento','Localización','Búsqueda de animales','Cancelación'])]},
+  {id:'wisc5', area:'Cognitivo', nombre:'WISC-V', sub:'Escala Wechsler de inteligencia para niños', edad:[72,203], wechsler:true,
+   desc:'La Escala de Inteligencia de Wechsler para Niños, quinta edición (WISC-V), evalúa el funcionamiento cognitivo de niños, niñas y adolescentes entre 6 y 16 años 11 meses, a través de un CI total y cinco índices primarios.',
+   esc:[ix('CIT'),ix('ICV'),ix('IVE'),ix('IRF'),ix('IMT'),ix('IVP'), ...sub(['Semejanzas','Vocabulario','Información','Comprensión','Cubos','Puzles visuales','Matrices','Balanzas','Aritmética','Dígitos','Span de dibujos','Letras y números','Claves','Búsqueda de símbolos','Cancelación'])]},
+  {id:'wisc4', area:'Cognitivo', nombre:'WISC-IV', sub:'Escala Wechsler de inteligencia para niños', edad:[72,203], wechsler:true,
+   desc:'La Escala de Inteligencia de Wechsler para Niños, cuarta edición (WISC-IV), evalúa el funcionamiento cognitivo de niños, niñas y adolescentes entre 6 y 16 años 11 meses, a través de un CI total y cuatro índices.',
+   esc:[ix4('CIT'),ix4('ICV'),ix4('IRP'),ix4('IMT'),ix4('IVP'), ...sub(['Semejanzas','Vocabulario','Comprensión','Información','Adivinanzas','Cubos','Conceptos','Matrices','Figuras incompletas','Dígitos','Letras y números','Aritmética','Claves','Búsqueda de símbolos','Animales'])]},
+  {id:'wais4', area:'Cognitivo', nombre:'WAIS-IV', sub:'Escala Wechsler de inteligencia para adultos', edad:[192,1080], wechsler:true,
+   desc:'La Escala de Inteligencia de Wechsler para Adultos, cuarta edición (WAIS-IV), evalúa el funcionamiento cognitivo desde los 16 años, a través de un CI total y cuatro índices.',
+   esc:[ix('CIT'),ix('ICV'),ix('IRP'),ix('IMT'),ix('IVP'), ...sub(['Semejanzas','Vocabulario','Información','Comprensión','Diseño con cubos','Matrices','Puzles visuales','Balanzas','Figuras incompletas','Retención de dígitos','Aritmética','Sucesión de números y letras','Búsqueda de símbolos','Claves','Cancelación'])]},
+  {id:'raven', area:'Cognitivo', nombre:'Test de Raven', sub:'Matrices progresivas', edad:[60,1080],
+   desc:'El Test de Matrices Progresivas de Raven evalúa la capacidad de razonamiento no verbal y de deducción de relaciones (factor g), con baja dependencia del lenguaje y de los aprendizajes escolares.',
+   extra:[{id:'forma', n:'Forma aplicada', opts:['Escala Coloreada (5 a 11 años)','Escala General (desde 12 años)']}],
+   esc:[T('pd','Puntaje directo','raw'), T('pc','Percentil','percRaven',{main:true})]},
+  // ---------- Conducta adaptativa ----------
+  {id:'icapcl', area:'Conducta adaptativa', nombre:'ICAP versión chilena', sub:'Validación FONIDE · 6 a 18 años', edad:[72,227], icapcl:true,
+   desc:'El Inventario para la Planificación de Servicios y la Programación Individual (ICAP), en su versión chilena validada con estudiantes de 6 a 18 años (Vera-Bachmann, Gálvez-Nieto, Álvarez y Trizano; proyecto FONIDE F911407), evalúa la conducta adaptativa mediante entrevista al padre, madre o cuidador en cuatro escalas y registra problemas de conducta. Sus puntajes directos se interpretan mediante baremos centílicos, considerando como punto de corte el centil 20.',
+   extra:[{id:'inf', n:'Informante (entrevista)', opts:['Madre','Padre','Apoderado/a','Cuidador/a','Otro']}],
+   esc:[T('dm','Destrezas motoras (DM) · máx. 21','icapcl',{max:21}), T('dsc','Destrezas sociales y comunicativas (DSC) · máx. 15','icapcl',{max:15}), T('dvp','Destrezas de la vida personal (DVP) · máx. 15','icapcl',{max:15}), T('dvd','Destrezas de la vida diaria (DVD) · máx. 30','icapcl',{max:30})]},
+  {id:'vineland', area:'Conducta adaptativa', nombre:'Vineland-3', sub:'Escalas de conducta adaptativa de Vineland', edad:[0,1080],
+   desc:'Las Escalas de Conducta Adaptativa de Vineland evalúan el funcionamiento adaptativo cotidiano en los dominios de comunicación, habilidades de la vida diaria y socialización (y motricidad en edades tempranas), a partir de la información de un informante que conoce bien a la persona. Entregan un Índice de Conducta Adaptativa (ICA) y puntuaciones por dominio (M=100, DE=15) y por subdominio en escala v (M=15, DE=3).',
+   extra:[{id:'ed', n:'Edición', opts:['Vineland-3','Vineland-II']}, {id:'bar', n:'Baremo utilizado', opts:['Estadounidense (Pearson)','Chileno (CEDETi UC)','Español']}, {id:'forma', n:'Forma', opts:['Entrevista completa','Entrevista por dominios','Cuestionario para padres/cuidadores','Cuestionario para docentes']}, {id:'inf', n:'Informante', opts:['Madre','Padre','Apoderado/a','Cuidador/a','Profesor/a','Otro']}],
+   esc:[T('ica','Índice de Conducta Adaptativa (ICA / ABC)','vin',{main:true}), T('com','Dominio Comunicación','vin'), T('hvd','Dominio Habilidades de la vida diaria','vin'), T('soc','Dominio Socialización','vin'), T('mot','Dominio Motricidad (hasta 9 años)','vin',{opt:true}),
+        ...['Comunicación receptiva','Comunicación expresiva','Comunicación escrita','Habilidades personales','Habilidades domésticas / escolares','Habilidades comunitarias','Relaciones interpersonales','Juego y tiempo libre','Habilidades de afrontamiento','Motricidad gruesa','Motricidad fina'].map(n=>({id:'s_'+n.replace(/\W+/g,'_'), n, t:'vinV', sub:true})),
+        T('mi','Conducta desadaptativa · Internalizante','vinMal',{opt:true}), T('me','Conducta desadaptativa · Externalizante','vinMal',{opt:true}), T('mg','Índice de conducta desadaptativa','vinMal',{opt:true})]},
+  {id:'vsms', area:'Conducta adaptativa', nombre:'Madurez Social de Vineland', sub:'Doll · adaptación chilena (Otero)', edad:[0,300],
+   desc:'La Escala de Madurez Social de Vineland (E. Doll), en su adaptación chilena realizada por Adriana Otero, evalúa mediante entrevista a un informante el grado de independencia y competencia social alcanzado en las áreas de autoayuda general, autoayuda en la alimentación y el vestido, autodirección, ocupación, comunicación, locomoción y socialización. Su puntaje total se convierte en una edad social, y el cociente social se obtiene dividiendo la edad social por la edad cronológica y multiplicando por 100.',
+   extra:[{id:'inf', n:'Informante', opts:['Madre','Padre','Apoderado/a','Cuidador/a','Profesor/a','Otro']}],
+   esc:[T('pt','Puntaje total','raw'), T('es','Edad social (en meses)','raw'), T('ec','Edad cronológica (en meses)','raw'), T('cs','Cociente social (CS)','csVsms',{main:true})]},
+  {id:'abas2', area:'Conducta adaptativa', nombre:'ABAS-II', sub:'Sistema de evaluación de la conducta adaptativa', edad:[0,1068],
+   desc:'El Sistema de Evaluación de la Conducta Adaptativa (ABAS-II) evalúa las habilidades conceptuales, sociales y prácticas que la persona utiliza de manera autónoma en su vida diaria.',
+   extra:[{id:'inf', n:'Informante', opts:['Madre','Padre','Apoderado/a','Profesor/a','Educador/a de párvulos','Autoinforme']}],
+   esc:[T('cgc','Índice de Conducta Adaptativa General (CAG)','ca',{main:true,adapt:true}), T('con','Índice Conceptual','ca'), T('soc','Índice Social','ca'), T('pra','Índice Práctico','ca'),
+        ...sub(['Comunicación','Utilización de recursos comunitarios','Habilidades académicas funcionales','Vida en el hogar / escuela','Salud y seguridad','Ocio','Autocuidado','Autodirección','Social','Motora']).map(e=>({...e,t:'escAbas'}))]},
+  // ---------- Desarrollo ----------
+  {id:'tadi', area:'Desarrollo', nombre:'TADI', sub:'Test de aprendizaje y desarrollo infantil', edad:[3,72],
+   extra:[{id:'ed', n:'Edición aplicada', opts:['TADI (1ª edición)','TADI-2']}],
+   desc:'El Test de Aprendizaje y Desarrollo Infantil (TADI), estandarizado en Chile, evalúa el desarrollo y aprendizaje de niños y niñas entre 3 meses y 6 años en cuatro dimensiones.',
+   esc:[T('tot','Puntaje total','tTadi',{main:true}), T('cog','Cognición','tTadi'), T('mot','Motricidad','tTadi'), T('len','Lenguaje','tTadi'), T('soc','Socioemocionalidad','tTadi')]},
+  {id:'tepsi', area:'Desarrollo', nombre:'TEPSI', sub:'Test de desarrollo psicomotor', edad:[24,60],
+   desc:'El Test de Desarrollo Psicomotor (TEPSI) evalúa el desarrollo psíquico infantil de niños y niñas entre 2 y 5 años en coordinación, lenguaje y motricidad.',
+   esc:[T('tot','Total','tTepsi',{main:true}), T('coo','Coordinación','tTepsi'), T('len','Lenguaje','tTepsi'), T('mot','Motricidad','tTepsi')]},
+  // ---------- Socioemocional ----------
+  {id:'sena', area:'Socioemocional', nombre:'SENA', sub:'Sistema de evaluación de niños y adolescentes', edad:[36,216],
+   desc:'El Sistema de Evaluación de Niños y Adolescentes (SENA) evalúa problemas emocionales y de conducta, así como recursos psicológicos, a partir de distintos informantes.',
+   extra:[{id:'inf', n:'Informante', opts:['Autoinforme','Familia','Escuela']}],
+   esc:[T('igp','Índice global de problemas','tProbSena',{main:true}), T('emo','Índice de problemas emocionales','tProbSena'), T('cond','Índice de problemas conductuales','tProbSena'),
+        T('fe','Índice de problemas en funciones ejecutivas','tProbSena'), T('ctx','Índice de problemas contextuales','tProbSena'), T('rec','Índice de recursos personales','tRecSena'),
+        T('dep','Depresión','tProbSena',{opt:true}), T('ans','Ansiedad','tProbSena',{opt:true}), T('anss','Ansiedad social','tProbSena',{opt:true}), T('som','Quejas somáticas','tProbSena',{opt:true}),
+        T('ate','Problemas de atención','tProbSena',{opt:true}), T('hip','Hiperactividad-impulsividad','tProbSena',{opt:true}), T('ira','Problemas de control de la ira','tProbSena',{opt:true}),
+        T('agr','Agresión','tProbSena',{opt:true}), T('des','Conducta desafiante','tProbSena',{opt:true}), T('fam','Problemas familiares','tProbSena',{opt:true}),
+        T('esc','Problemas con la escuela','tProbSena',{opt:true}), T('comp','Problemas con los compañeros','tProbSena',{opt:true}), T('aut','Autoestima','tRecSena',{opt:true}), T('soci','Integración y competencia social','tRecSena',{opt:true})]},
+  {id:'basc3', area:'Socioemocional', nombre:'BASC-3', sub:'Sistema de evaluación de la conducta', edad:[24,263],
+   desc:'El Sistema de Evaluación de la Conducta de Niños y Adolescentes (BASC-3) evalúa aspectos adaptativos y problemas de conducta y emocionales, a partir de cuestionarios para familia, docentes y autoinforme.',
+   extra:[{id:'inf', n:'Informante', opts:['Familia (P)','Docente (T)','Autoinforme (S)']}],
+   esc:[T('isc','Índice de síntomas comportamentales','tProb',{main:true}), T('ext','Exteriorizar problemas','tProb'), T('int','Interiorizar problemas','tProb'), T('hab','Habilidades adaptativas','tRec'),
+        T('hip','Hiperactividad','tProb',{opt:true}), T('agr','Agresividad','tProb',{opt:true}), T('pc','Problemas de conducta','tProb',{opt:true}), T('ans','Ansiedad','tProb',{opt:true}),
+        T('dep','Depresión','tProb',{opt:true}), T('som','Somatización','tProb',{opt:true}), T('ati','Atipicidad','tProb',{opt:true}), T('ret','Retraimiento','tProb',{opt:true}),
+        T('ate','Problemas de atención','tProb',{opt:true}), T('ada','Adaptabilidad','tRec',{opt:true}), T('hs','Habilidades sociales','tRec',{opt:true}), T('hes','Habilidades para el estudio','tRec',{opt:true}), T('cf','Comunicación funcional','tRec',{opt:true})]},
+  {id:'cdi', area:'Socioemocional', nombre:'CDI', sub:'Inventario de depresión infantil (Kovacs)', edad:[84,191],
+   desc:'El Inventario de Depresión Infantil (CDI) es un autoinforme que explora la presencia de sintomatología depresiva en niños, niñas y adolescentes entre 7 y 15 años. Su puntaje total va de 0 a 54 y el punto de corte habitual es 19.',
+   esc:[T('tot','Puntaje total','cut',{c:19,main:true})]},
+  {id:'piers', area:'Socioemocional', nombre:'Piers-Harris 2', sub:'Escala de autoconcepto', edad:[84,216],
+   desc:'La Escala de Autoconcepto Piers-Harris 2 es un autoinforme que evalúa cómo el/la estudiante se percibe a sí mismo/a en distintos dominios.',
+   esc:[T('tot','Autoconcepto total','tPiers',{main:true}), T('con','Conducta','tPiers'), T('int','Estatus intelectual y escolar','tPiers'), T('fis','Apariencia física','tPiers'),
+        T('ans','Ausencia de ansiedad','tPiers'), T('pop','Popularidad','tPiers'), T('fel','Felicidad y satisfacción','tPiers')]},
+  // ---------- Atención y funciones ejecutivas ----------
+  {id:'conners3', area:'Atención y funciones ejecutivas', nombre:'Conners 3', sub:'Atención e hiperactividad', edad:[72,216], pd:true,
+   desc:'La Escala Conners 3 evalúa conductas asociadas a inatención, hiperactividad e impulsividad y problemas relacionados, a partir de la información de familia, docentes o autoinforme.',
+   extra:[{id:'inf', n:'Informante', opts:['Familia','Docente','Autoinforme']}],
+   esc:[T('ine','Inatención','tConn',{main:true}), T('hip','Hiperactividad / impulsividad','tConn',{main:true}), T('apr','Problemas de aprendizaje','tConn'), T('fe','Funcionamiento ejecutivo','tConn'),
+        T('agr','Agresión','tConn'), T('par','Relaciones con pares','tConn'), T('glob','Índice global Conners','tConn')]},
+  {id:'brief2', area:'Atención y funciones ejecutivas', nombre:'BRIEF-2', sub:'Evaluación conductual de la función ejecutiva', edad:[60,216],
+   desc:'La Evaluación Conductual de la Función Ejecutiva (BRIEF-2) evalúa, mediante cuestionarios a familia y docentes, cómo se manifiestan las funciones ejecutivas en la vida diaria.',
+   extra:[{id:'inf', n:'Informante', opts:['Familia','Escuela','Autoinforme']}],
+   esc:[T('ige','Índice global de función ejecutiva (IGE)','tBrief',{main:true}), T('irc','Índice de regulación conductual','tBrief'), T('ire','Índice de regulación emocional','tBrief'), T('ircog','Índice de regulación cognitiva','tBrief'),
+        T('inh','Inhibición','tBrief',{opt:true}), T('sup','Supervisión de sí mismo','tBrief',{opt:true}), T('flex','Flexibilidad','tBrief',{opt:true}), T('ce','Control emocional','tBrief',{opt:true}),
+        T('ini','Iniciativa','tBrief',{opt:true}), T('mt','Memoria de trabajo','tBrief',{opt:true}), T('plan','Planificación y organización','tBrief',{opt:true}), T('st','Supervisión de la tarea','tBrief',{opt:true}), T('om','Organización de materiales','tBrief',{opt:true})]},
+  {id:'enfen', area:'Atención y funciones ejecutivas', nombre:'ENFEN', sub:'Funciones ejecutivas en niños', edad:[72,156],
+   desc:'La Evaluación Neuropsicológica de las Funciones Ejecutivas en Niños (ENFEN) evalúa, entre los 6 y 12 años, fluidez verbal, flexibilidad, planificación e inhibición.',
+   esc:[T('ff','Fluidez fonológica','deca'), T('fs','Fluidez semántica','deca'), T('sg','Senderos gris','deca'), T('sc','Senderos a color','deca'), T('ani','Anillas','deca'), T('inte','Interferencia','deca')]},
+  // ---------- TEA ----------
+  {id:'mchat', area:'TEA', nombre:'M-CHAT-R/F', sub:'Tamizaje de autismo', edad:[16,30],
+   desc:'El M-CHAT-R/F es un instrumento de tamizaje que identifica niños y niñas entre 16 y 30 meses con riesgo de presentar una condición del espectro autista. No constituye un diagnóstico.',
+   extra:[{id:'seg', n:'Entrevista de seguimiento (riesgo medio)', opts:['Positiva (2 o más ítems)','Negativa (0 a 1 ítem)','No aplicada']}],
+   esc:[T('tot','Puntaje total','mchat',{main:true})]},
+  {id:'scq', area:'TEA', nombre:'SCQ', sub:'Cuestionario de comunicación social', edad:[48,1080],
+   desc:'El Cuestionario de Comunicación Social (SCQ) es un instrumento de tamizaje respondido por la familia, que explora indicadores de la comunicación y la interacción social asociados al espectro autista.',
+   extra:[{id:'forma', n:'Forma', opts:['Forma A — Toda la vida','Forma B — Actual']}],
+   esc:[T('tot','Puntaje total','cut',{c:15,main:true})]},
+  {id:'ados2', area:'TEA', nombre:'ADOS-2', sub:'Observación para el diagnóstico de autismo', edad:[12,1080],
+   desc:'La Escala de Observación para el Diagnóstico del Autismo (ADOS-2) es una evaluación estandarizada y semiestructurada de la comunicación, la interacción social, el juego y las conductas restringidas y repetitivas.',
+   extra:[{id:'mod', n:'Módulo', opts:['Módulo T','Módulo 1','Módulo 2','Módulo 3','Módulo 4']}, {id:'clas', n:'Clasificación (módulos 1 a 4) o rango de preocupación (módulo T)', opts:['Autismo','Espectro autista','No espectro','Preocupación moderada a severa','Preocupación leve a moderada','Preocupación escasa o nula']}],
+   esc:[T('comp','Puntaje comparativo (solo módulos 1 a 3)','adosComp',{main:true}), T('as','Afectación social (AS)','raw'), T('crr','Comportamiento restringido y repetitivo (CRR)','raw')]},
+  {id:'adir', area:'TEA', nombre:'ADI-R', sub:'Entrevista para el diagnóstico de autismo', edad:[24,1080],
+   desc:'La Entrevista para el Diagnóstico del Autismo – Revisada (ADI-R) es una entrevista estructurada a la familia que recoge la historia del desarrollo en interacción social, comunicación y conductas repetitivas.',
+   esc:[T('a','A · Interacción social recíproca','cut',{c:10}), T('bv','B · Comunicación (verbal)','cut',{c:8}), T('bn','B · Comunicación (no verbal)','cut',{c:7,opt:true}), T('c','C · Conductas restringidas y repetitivas','cut',{c:3}), T('d','D · Alteraciones evidentes a los 36 meses o antes','cut',{c:1})]},
+  // ---------- Proyectivos ----------
+  {id:'htp', area:'Proyectivo', nombre:'HTP', sub:'Casa · Árbol · Persona', edad:[60,1080], proj:true,
+   desc:'El Test Casa-Árbol-Persona (HTP) es una técnica proyectiva gráfica que permite explorar aspectos de la personalidad, la autoimagen y la relación con el entorno.',
+   esc:[T('ieh','Indicadores emocionales (n°)','raw'), T('ic','Indicadores de conflicto (n°)','raw',{opt:true})]},
+  {id:'fh', area:'Proyectivo', nombre:'Figura Humana', sub:'Koppitz / Machover', edad:[60,1080], proj:true,
+   desc:'El Test del Dibujo de la Figura Humana es una técnica gráfica que permite explorar la madurez perceptivo-motora y la presencia de indicadores emocionales.',
+   esc:[T('ie','Indicadores emocionales (Koppitz)','cut',{c:2}), T('ied','Ítems evolutivos esperados presentes (n°)','raw',{opt:true})]},
+  {id:'fam', area:'Proyectivo', nombre:'Test de la Familia', sub:'Corman', edad:[60,1080], proj:true, fam:true,
+   desc:'El Test del Dibujo de la Familia es una técnica proyectiva que permite explorar la percepción que el/la estudiante tiene de su dinámica y vínculos familiares.',
+   esc:[T('ic','Indicadores de conflicto familiar (n°)','raw'), T('iv','Indicadores de vínculo positivo (n°)','raw')]},
+  {id:'pbll', area:'Proyectivo', nombre:'Persona bajo la lluvia', sub:'Afrontamiento del estrés', edad:[72,1080], proj:true,
+   desc:'El Test de la Persona bajo la Lluvia es una técnica gráfica que permite explorar la imagen corporal y los recursos con que el/la estudiante enfrenta situaciones de presión.',
+   esc:[T('est','Indicadores de presión o estrés (n°)','raw'), T('rec','Indicadores de recursos de afrontamiento (n°)','raw')]},
+];
+const AREAS = ['Cognitivo','Conducta adaptativa','Desarrollo','Socioemocional','Atención y funciones ejecutivas','TEA','Proyectivo'];
+const PROJ_IND = {
+  base:['Esquema corporal integrado','Indicadores de inseguridad','Indicadores de ansiedad','Indicadores de impulsividad','Indicadores de retraimiento','Necesidad de afecto y apoyo','Indicadores de agresividad','Autoimagen disminuida','Recursos adaptativos adecuados'],
+  fam:['Vínculos familiares positivos','Distancia emocional con figuras familiares','Sentimiento de exclusión','Rivalidad fraterna','Figura de apego identificable','Conflicto familiar percibido'],
+  pbll:['Recursos de protección adecuados','Escasa protección ante la presión','Percepción de amenaza intensa','Afrontamiento activo','Afrontamiento evitativo'],
+};
+
+/* ============================================================
+   PAUTA DE OBSERVACIÓN CONDUCTUAL (propia)
+   ============================================================ */
+const PAUTA = [
+  {g:'Presentación y contacto', items:[
+    {id:'pres', q:'Presentación personal', o:[['a','Adecuada','se presenta con una apariencia personal adecuada y acorde al contexto'],['b','Descuidada','se presenta con una apariencia personal descuidada']]},
+    {id:'cont', q:'Contacto inicial', o:[['a','Espontáneo','establece contacto con el evaluador de manera espontánea'],['b','Requiere adaptación','requiere un tiempo de adaptación para establecer contacto'],['c','Escaso o evitativo','establece un contacto escaso, con conductas evitativas']]},
+    {id:'vis', q:'Contacto visual', o:[['a','Adecuado','mantiene un contacto visual adecuado'],['b','Fluctuante','su contacto visual es fluctuante'],['c','Escaso','presenta escaso contacto visual']]},
+    {id:'rel', q:'Relación con el evaluador', o:[['a','Cercana','se muestra cercano/a y confiado/a con el evaluador'],['b','Distante','mantiene una relación distante'],['c','Desinhibida','se muestra desinhibido/a, con dificultad para respetar la distancia interpersonal']]},
+  ]},
+  {g:'Actitud y regulación', items:[
+    {id:'act', q:'Actitud ante la evaluación', o:[['a','Colaboradora y motivada','muestra una actitud colaboradora y motivada frente a las tareas'],['b','Colaboradora con refuerzo','colabora, aunque requiere refuerzo verbal frecuente para mantenerse en la tarea'],['c','Poco colaboradora','muestra una actitud poco colaboradora'],['d','Oposicionista','presenta conductas oposicionistas frente a las tareas']]},
+    {id:'emo', q:'Estado emocional', o:[['a','Tranquilo/a','se observa tranquilo/a'],['b','Ansioso/a','se observan signos de ansiedad (inquietud, preguntas reiteradas sobre su desempeño)'],['c','Retraído/a','se muestra retraído/a y con escasa expresión emocional'],['d','Lábil','presenta cambios emocionales rápidos durante la sesión']]},
+    {id:'frus', q:'Tolerancia a la frustración', o:[['a','Persiste','persiste ante tareas de mayor dificultad'],['b','Persiste con apoyo','se desmotiva frente a los errores, pero continúa con apoyo del evaluador'],['c','Abandona o se desregula','tiende a abandonar las tareas o a desregularse cuando no logra resolverlas']]},
+    {id:'motora', q:'Actividad motora', o:[['a','Adecuada','su actividad motora es adecuada al contexto'],['b','Inquietud leve','presenta inquietud motora leve (movimientos de manos y pies)'],['c','Inquietud marcada','presenta inquietud motora marcada, se levanta de su asiento en varias ocasiones']]},
+  ]},
+  {g:'Procesos durante las tareas', items:[
+    {id:'aten', q:'Atención', o:[['a','Sostenida','mantiene la atención de forma sostenida durante la sesión'],['b','Fluctuante','su atención fluctúa y requiere redirección ocasional'],['c','Dispersa','se distrae con frecuencia ante estímulos del entorno, requiriendo redirección constante']]},
+    {id:'comp', q:'Comprensión de instrucciones', o:[['a','A la primera','comprende las instrucciones en la primera presentación'],['b','Requiere repetición','requiere la repetición de algunas instrucciones'],['c','Requiere mediación','requiere ejemplos y mediación para comprender las instrucciones']]},
+    {id:'leng', q:'Lenguaje expresivo', o:[['a','Fluido','se expresa con un lenguaje fluido y acorde a su edad'],['b','Simple','utiliza un lenguaje simple, con vocabulario reducido'],['c','Escaso','sus respuestas verbales son escasas y breves'],['d','Dificultad articulatoria','presenta dificultades articulatorias que afectan su inteligibilidad']]},
+    {id:'ritmo', q:'Ritmo de trabajo', o:[['a','Adecuado','trabaja a un ritmo adecuado'],['b','Lento','trabaja a un ritmo lento, requiriendo más tiempo del habitual'],['c','Impulsivo','responde de manera apresurada, sin revisar sus respuestas']]},
+    {id:'estr', q:'Estrategias de resolución', o:[['a','Planifica y verifica','planifica su trabajo y verifica sus respuestas'],['b','Ensayo y error','resuelve principalmente por ensayo y error'],['c','Sin estrategia evidente','no se observa una estrategia de resolución evidente']]},
+    {id:'auto', q:'Autonomía', o:[['a','Autónomo/a','trabaja con autonomía'],['b','Requiere supervisión','requiere supervisión para iniciar y completar las tareas'],['c','Apoyo constante','requiere apoyo constante del evaluador']]},
+    {id:'fat', q:'Fatiga', o:[['a','No se observa','no se observan signos de fatiga'],['b','Hacia el final','muestra signos de fatiga hacia el final de la sesión'],['c','Temprana','presenta fatiga de forma temprana, siendo necesario realizar pausas']]},
+  ]},
+];
+const FACTORES = ['Evaluación en más de una sesión','Uso de lentes ópticos','Uso de audífonos','Tratamiento farmacológico informado','Ausentismo escolar reciente','Contexto con interrupciones o ruido','Lengua materna distinta al español','Situación emocional reciente informada'];
+
+
+/* ============================================================
+   ESTADO
+   ============================================================ */
+const LSKEY='informePsico.v1';
+function blank(){
+  return {
+    id:'inf_'+Date.now().toString(36), creado:new Date().toISOString(), step:1,
+    ident:{nombre:'', rut:'', fnac:'', feval:new Date().toISOString().slice(0,10), sexo:'', nivel:'', curso:'', establecimiento:'',
+      tipo:'Ingreso', motivos:[], motivoOtro:'', antec:[], antecTxt:'', prof:'', profRut:'', profReg:''},
+    sel:[], tests:{}, area:'Todas',
+    v:6, activo:null,
+    obs:{}, factores:[], validez:'rep', obsTxt:'',
+    doc:null,
+  };
+}
+let S = blank();
+function loadAll(){ try{ return JSON.parse(localStorage.getItem(LSKEY)||'{}'); }catch(e){ return {}; } }
+function saveAll(all){ try{ localStorage.setItem(LSKEY, JSON.stringify(all)); return true; }catch(e){ return false; } }
+let saveTimer=null;
+function persist(){ clearTimeout(saveTimer); saveTimer=setTimeout(()=>{ const all=loadAll(); S.actualizado=new Date().toISOString(); all[S.id]=S; saveAll(all); },400); }
+(function init(){
+  const all=loadAll(); const last=Object.values(all).sort((a,b)=>(b.actualizado||'').localeCompare(a.actualizado||''))[0];
+  if(last){ S=last; if(S.sel) S.sel=S.sel.filter(id=>id!=='icap'); if(S.v!==5 && S.v!==6){ S.step=1; S.doc=null; S.ident={...S.ident, nombre:'', rut:'', fnac:'', sexo:''}; } if(S.v!==6){ S.v=6; S.activo=null; } }
+})();
+
+/* ============================================================
+   UTILIDADES
+   ============================================================ */
+const $=s=>document.querySelector(s);
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function toast(m){ const t=$('#toast'); t.textContent=m; t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),2400); }
+function edadMeses(){ const {fnac,feval}=S.ident; if(!fnac||!feval) return null; const a=new Date(fnac+'T00:00'), b=new Date(feval+'T00:00'); if(isNaN(a)||isNaN(b)||b<a) return null;
+  let m=(b.getFullYear()-a.getFullYear())*12+(b.getMonth()-a.getMonth()); if(b.getDate()<a.getDate()) m--; return m; }
+function edadTxt(m){ if(m==null) return '—'; const y=Math.floor(m/12), mm=m%12; return `${y} año${y===1?'':'s'}${mm?` ${mm} mes${mm===1?'':'es'}`:''}`; }
+function rangoTxt(r){ const f=m=> m>=1080?'adultez':(m<24? m+' meses' : (m%12? `${Math.floor(m/12)}a ${m%12}m` : `${m/12} años`)); return r[1]>=1080? `desde ${f(r[0])}` : `${f(r[0])} – ${f(r[1])}`; }
+function fmtFecha(iso){ if(!iso) return '—'; const d=new Date(iso+'T00:00'); return isNaN(d)?iso:d.toLocaleDateString('es-CL',{day:'numeric',month:'long',year:'numeric'}); }
+function g(m,f,n){ return S.ident.sexo==='F'?f:(S.ident.sexo==='M'?m:(n||m.replace(/o$/,'o/a'))); }
+function elEst(){ return g('el estudiante','la estudiante','el/la estudiante'); }
+function nombreCorto(){ const n=(S.ident.nombre||'').trim().split(/\s+/)[0]; return n || g('El estudiante','La estudiante','El/la estudiante'); }
+function percentil(z){ // CDF normal
+  const t=1/(1+0.2316419*Math.abs(z)); const d=0.3989423*Math.exp(-z*z/2);
+  let p=d*t*(0.3193815+t*(-0.3565638+t*(1.781478+t*(-1.821256+t*1.330274)))); if(z>0) p=1-p; return Math.round(p*100); }
+function listaY(arr){ if(arr.length<=1) return arr.join(''); const last=String(arr[arr.length-1]); const conj=/^(<[^>]+>)*(i|hi)(?![aeoué])/i.test(last.normalize('NFD').replace(/[\u0300-\u036f]/g,''))?' e ':' y '; return arr.slice(0,-1).join(', ')+conj+last; }
+function escName(n){ return /^Índice global/.test(n)? lowerFirst(n) : lowerFirst(n.replace(/^Índice (de )?/,'')); }
+function lowerFirst(s){ return /^[A-ZÁÉÍÓÚÑ]{2}/.test(s)? s : s.charAt(0).toLowerCase()+s.slice(1); }
+function infTxt(i){ const m={'Madre':'la madre','Padre':'el padre','Apoderado/a':'el/la apoderado/a','Profesor/a jefe':'el/la profesor/a jefe','Profesor/a':'el/la profesor/a','Educador/a diferencial':'el/la educador/a diferencial','Educador/a de párvulos':'el/la educador/a de párvulos','Docente':'el/la docente','Docente (T)':'el/la docente','Familia':'la familia','Familia (P)':'la familia','Escuela':'el establecimiento','Autoinforme':g('el propio estudiante','la propia estudiante','el/la propio/a estudiante'),'Autoinforme (S)':g('el propio estudiante','la propia estudiante','el/la propio/a estudiante'),'Otro':'otro informante'}; return m[i]||lowerFirst(i); }
+function cap(s){ return s? s[0].toUpperCase()+s.slice(1) : s; }
+function testById(id){ return TESTS.find(t=>t.id===id); }
+function td(id){ if(!S.tests[id]) S.tests[id]={v:{}, x:{}, ind:[], nota:'', cu:[], ok:false}; if(!S.tests[id].cu) S.tests[id].cu=[]; return S.tests[id]; }
+function num(v){ return (v===''||v==null)?null:Number(v); }
+
+/* ============================================================
+   NAVEGACIÓN
+   ============================================================ */
+const STEPS=[['Instrumentos','Pruebas y puntajes'],['Observación','Pauta conductual'],['Informe','Redacción y descarga']];
+function renderSteps(){
+  $('#steps').innerHTML=STEPS.map((s,i)=>`<button class="step ${S.step===i+1?'on':''} ${S.step>i+1?'done':''}" data-step="${i+1}"><span class="n">${S.step>i+1?'✓':i+1}</span><span><b>${s[0]}</b><small>${s[1]}</small></span></button>`).join('');
+  document.querySelectorAll('[data-step]').forEach(b=>b.onclick=()=>go(+b.dataset.step));
+}
+function markDirty(){ if(S.doc) S.dirty=true; }
+function go(n){ S.step=n; if(n===3 && (!S.doc || (S.dirty && !S.doc.edited))){ S.doc=buildDoc(); S.dirty=false; } persist(); render(); window.scrollTo({top:0,behavior:'instant'}); }
+function render(){ renderSteps(); const m=$('#main');
+  if(S.step===1) r2(m); else if(S.step===2) r3(m); else r4(m); }
+function navFoot(prev,next,nextLbl){ return `<div class="navfoot">${prev?`<button class="btn" data-go="${prev}">Volver</button>`:'<span></span>'}${next?`<button class="btn primary" data-go="${next}">${nextLbl}</button>`:''}</div>`; }
+function bindNav(m){ m.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(+b.dataset.go)); }
+function chipsHTML(opts, selected, attr, multi){ return opts.map(o=>{ const on= multi? selected.includes(o) : selected===o; return `<button type="button" class="chip ${on?'sel':''}" ${attr}="${esc(o)}">${esc(o)}</button>`; }).join(''); }
+
+/* ---------- Paso 2 ---------- */
+function cardState(id){ if(S.activo===id) return 'act'; if(!S.sel.includes(id)) return ''; return (S.tests[id]&&S.tests[id].ok)?'ok':'sel'; }
+function cardLabel(st){ return st==='act'?'Ingresando puntajes':st==='ok'?'✓ Confirmado':st==='sel'?'Pendiente de confirmar':''; }
+function refreshCard(id){ const c=document.querySelector(`[data-test="${id}"]`); if(!c) return; const st=cardState(id);
+  c.className=`tcard ${st} ${c.classList.contains('out')?'out':''}`; const s=c.querySelector('.st'); if(s){ s.textContent=cardLabel(st); s.hidden=!st; } }
+function editado(tid){ const d=td(tid); if(d.ok){ d.ok=false; } markDirty(); persist(); refreshCard(tid); }
+function r2(m){
+  const em=edadMeses();
+  const list=TESTS.filter(t=>S.area==='Todas'||t.area===S.area);
+  if(S.activo && !S.sel.includes(S.activo)) S.activo=null;
+  const nOk=confSel().length, nPend=S.sel.length-nOk;
+  const act=S.activo? testById(S.activo) : null;
+  m.innerHTML=`
+  <section class="panel">
+    <h2>Instrumentos aplicados</h2>
+    <p class="lead">Pincha un instrumento para ingresar sus puntajes y confirma los datos al terminar. El guardado es automático.${S.sel.length?` <b>${nOk} confirmado(s)${nPend?`, ${nPend} pendiente(s)`:''}.</b>`:''}</p>
+    <div class="areas">${['Todas',...AREAS].map(a=>`<button class="chip ${S.area===a?'sel':''}" data-area="${esc(a)}">${esc(a)}</button>`).join('')}</div>
+    <div class="tgrid">${list.map(t=>{ const out= em!=null && (em<t.edad[0]||em>t.edad[1]); const st=cardState(t.id); return `
+      <button class="tcard ${st} ${out?'out':''}" data-test="${t.id}" aria-pressed="${S.activo===t.id}">
+        <span class="ar">${esc(t.area)}</span><b>${esc(t.nombre)}</b><span class="s">${esc(t.sub)}</span>
+        <div class="age">${out?'Fuera de rango · ':''}${rangoTxt(t.edad)}</div>
+        <span class="st" ${st?'':'hidden'}>${cardLabel(st)}</span></button>`; }).join('')}</div>
+  </section>
+  <div id="scoreBoxes">${act? scoreBox(act) : ''}</div>
+  ${navFoot(null,2,'Continuar a la pauta de observación')}`;
+  m.querySelectorAll('[data-area]').forEach(b=>b.onclick=()=>{ S.area=b.dataset.area; persist(); render(); });
+  m.querySelectorAll('[data-test]').forEach(b=>b.onclick=()=>{ const id=b.dataset.test;
+    if(S.activo===id){ S.activo=null; persist(); render(); return; }
+    if(!S.sel.includes(id)){ S.sel.push(id); td(id); markDirty(); }
+    S.activo=id; persist(); render();
+    const box=document.querySelector(`[data-box="${id}"]`); if(box) box.scrollIntoView({behavior:'smooth',block:'start'}); });
+  bindScores(m); bindNav(m);
+}
+function rmin(e){ return e.min!=null? e.min : TIPOS[e.t].min; } function rmax(e){ return e.max!=null? e.max : TIPOS[e.t].max; }
+function fueraRango(e,v){ const n=num(v); return n!=null && !isNaN(n) && (n<rmin(e) || n>rmax(e)); }
+function pillHTML(e,v){ if(fueraRango(e,v)){ return `<span class="pill p2">Revisar: fuera de rango (${rmin(e)} a ${rmax(e)})</span>`; }
+  const c=clasif(e,num(v)); return c? (c.lvl<0?'<span class="pill pn">Sin clasificación</span>':`<span class="pill p${c.lvl}">${esc(c.txt)}</span>`) : '<span class="pill pn">Sin ingresar</span>'; }
+function scoreRow(t,e){
+  const d=td(t.id); const v=d.v[e.id]; const c=clasif(e,num(v)); const tp=TIPOS[e.t];
+  const pdv=(d.pd||{})[e.id];
+  return `<div class="srow ${t.pd&&!e.sub?'pd':''}"><div class="nm">${esc(e.n)}<small>${esc(tp.lab)}${e.t==='cut'?` · corte ≥ ${e.c}`:''}${e.opt?' · opcional':''}</small></div>
+    ${t.pd&&!e.sub?`<input type="number" inputmode="numeric" class="pdin" data-pd="${t.id}|${e.id}" value="${pdv==null?'':esc(pdv)}" min="0" placeholder="PD" aria-label="Puntaje directo ${esc(e.n)}">`:''}
+    <input type="number" inputmode="decimal" data-sc="${t.id}|${e.id}" value="${v==null?'':esc(v)}" min="${rmin(e)}" max="${rmax(e)}" aria-label="${esc(e.n)}">
+    <div class="cl" data-cl="${t.id}|${e.id}">${pillHTML(effE(t,e),v)}</div></div>`;
+}
+function scoreBox(t){
+  const d=td(t.id);
+  const main=(t.esc||[]).filter(e=>!e.sub && !e.opt); const opt=(t.esc||[]).filter(e=>e.opt && !e.sub); const subs=(t.esc||[]).filter(e=>e.sub);
+  const inds = t.proj ? [...PROJ_IND.base, ...(t.fam?PROJ_IND.fam:[]), ...(t.id==='pbll'?PROJ_IND.pbll:[])] : [];
+  return `<section class="tbox" data-box="${t.id}">
+    <header><div><b>${esc(t.nombre)}</b><small>${esc(t.sub)}</small></div><button class="btn sm ghost" data-quitar="${t.id}">Quitar instrumento</button></header>
+    <div class="body">
+      ${(t.extra||[]).map(x=>`<div class="fld"><span class="lbl">${esc(x.n)}</span><div class="chips">${x.opts.map(o=>`<button class="chip ${d.x[x.id]===o?'sel':''}" data-ex="${t.id}|${x.id}|${esc(o)}">${esc(o)}</button>`).join('')}</div></div>`).join('')}
+      ${t.pd?'<div class="shead"><span>Escala</span><span>Directo</span><span>Puntuación T</span><span>Clasificación</span></div>':''}
+      ${main.map(e=>scoreRow(t,e)).join('')}
+      ${opt.length?`<details class="sub" open><summary>Escalas complementarias (${opt.length})</summary>${opt.map(e=>scoreRow(t,e)).join('')}</details>`:''}
+      ${subs.length?`<details class="sub" open><summary>Puntajes por subprueba (${subs.length})</summary>${subs.map(e=>scoreRow(t,e)).join('')}</details>`:''}
+      ${t.proj?`<div class="fld" style="margin-top:10px"><span class="lbl">Aspectos observados en la producción gráfica</span><div class="chips">${inds.map(o=>`<button class="chip ${d.ind.includes(o)?'sel':''}" data-ind="${t.id}|${esc(o)}">${esc(o)}</button>`).join('')}</div></div>`:''}
+      ${t.icapcl?`<details class="sub" open><summary>E. Problemas de conducta</summary><p class="hint" style="margin:6px 0">Si no se presenta, deja "Nunca" y "No es grave".</p>
+        <div class="tablewrap" style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:0.84rem">
+        <tr><th style="text-align:left;padding:6px">Categoría</th><th style="text-align:left;padding:6px">Frecuencia</th><th style="text-align:left;padding:6px">Gravedad</th></tr>
+        ${ICAPCL.conductas.map(([k,n])=>{ const c=(d.cond||{})[k]||{f:0,g:0}; return `<tr><td style="padding:6px;border-top:1px solid var(--line-2)">${esc(n)}</td>
+          <td style="padding:6px;border-top:1px solid var(--line-2)"><select data-cond="${t.id}|${k}|f" aria-label="Frecuencia ${esc(n)}">${ICAPCL.frec.map((o,i)=>`<option value="${i}" ${+c.f===i?'selected':''}>${esc(o)}</option>`).join('')}</select></td>
+          <td style="padding:6px;border-top:1px solid var(--line-2)"><select data-cond="${t.id}|${k}|g" aria-label="Gravedad ${esc(n)}">${ICAPCL.grav.map((o,i)=>`<option value="${i}" ${+c.g===i?'selected':''}>${esc(o)}</option>`).join('')}</select></td></tr>`; }).join('')}
+        </table></div></details>`:''}
+      <details class="sub" open><summary>Otras escalas o puntajes (${(d.cu||[]).length})</summary>
+        <p class="hint" style="margin:6px 0">Agrega cualquier puntaje de la prueba que no aparezca arriba (índice secundario, puntaje directo, percentil, etc.).</p>
+        ${(d.cu||[]).map((x,i)=>`<div class="curow"><input type="text" data-cu="${t.id}|${i}|n" value="${esc(x.n)}" placeholder="Nombre de la escala" aria-label="Nombre de la escala">
+          <input type="text" data-cu="${t.id}|${i}|v" value="${esc(x.v)}" placeholder="Puntaje" aria-label="Puntaje">
+          <input type="text" data-cu="${t.id}|${i}|cl" value="${esc(x.cl)}" placeholder="Clasificación (opcional)" aria-label="Clasificación">
+          <button class="btn sm ghost" data-cudel="${t.id}|${i}" aria-label="Eliminar escala">✕</button></div>`).join('')}
+        <button class="btn sm" data-cuadd="${t.id}" style="margin-top:6px">+ Agregar escala</button>
+      </details>
+      <div class="fld" style="margin-top:10px;margin-bottom:0"><label>Observación específica (opcional)</label><input type="text" data-nota="${t.id}" value="${esc(d.nota)}" placeholder="Ej.: se aplicó en dos sesiones; la subprueba X se invalidó por…"></div>
+    </div>
+    <div class="foot"><span class="hint" style="margin:0" id="okState">${d.ok?'✓ Datos confirmados. Si modificas un puntaje deberás confirmar nuevamente.':'Los datos se guardan automáticamente. Confírmalos para incluirlos en el informe.'}</span>
+      <button class="btn primary" data-confirmar="${t.id}">Confirmar datos</button></div>
+    </section>`;
+}
+function okMsg(m,tid){ const el=m.querySelector('#okState'); if(el) el.textContent='Los datos se guardan automáticamente. Confírmalos para incluirlos en el informe.'; }
+function bindScores(m){
+  m.querySelectorAll('[data-sc]').forEach(inp=>inp.addEventListener('input', e=>{
+    const [tid,eid]=inp.dataset.sc.split('|'); const t=testById(tid); const es=effE(t,t.esc.find(x=>x.id===eid));
+    td(tid).v[eid]= e.target.value===''? '' : e.target.value; editado(tid); okMsg(m,tid);
+    if(tid==='vsms' && (eid==='es'||eid==='ec')){ const dv=td('vsms').v; const es=num(dv.es), ec=num(dv.ec);
+      if(es>0 && ec>0){ const cs=Math.round(es/Math.min(ec,300)*100); dv.cs=String(cs); const ci=m.querySelector('[data-sc="vsms|cs"]'); if(ci){ ci.value=cs; } const cc=m.querySelector('[data-cl="vsms|cs"]'); if(cc) cc.innerHTML=pillHTML(testById('vsms').esc.find(z=>z.id==='cs'),cs); } }
+    const cl=m.querySelector(`[data-cl="${tid}|${eid}"]`); cl.innerHTML=pillHTML(es,e.target.value);
+  }));
+  m.querySelectorAll('[data-ex]').forEach(b=>b.onclick=()=>{ const [tid,xid,o]=b.dataset.ex.split('|'); const d=td(tid); d.x[xid]= d.x[xid]===o? '' : o; d.ok=false; markDirty(); persist(); render(); });
+  m.querySelectorAll('[data-ind]').forEach(b=>b.onclick=()=>{ const [tid,o]=b.dataset.ind.split('|'); const d=td(tid); const i=d.ind.indexOf(o); if(i>=0) d.ind.splice(i,1); else d.ind.push(o); d.ok=false; markDirty(); persist(); render(); });
+  m.querySelectorAll('[data-nota]').forEach(i=>i.addEventListener('input', e=>{ td(i.dataset.nota).nota=e.target.value; editado(i.dataset.nota); okMsg(m,i.dataset.nota); }));
+  m.querySelectorAll('[data-quitar]').forEach(b=>b.onclick=()=>{ const id=b.dataset.quitar; if(!confirm('¿Quitar este instrumento? Sus puntajes se conservan si vuelves a seleccionarlo.')) return; S.sel=S.sel.filter(x=>x!==id); if(S.tests[id]) S.tests[id].ok=false; S.activo=null; markDirty(); persist(); render(); });
+  m.querySelectorAll('[data-cu]').forEach(inp=>inp.addEventListener('input', e=>{ const [tid,i,k]=inp.dataset.cu.split('|'); td(tid).cu[+i][k]=e.target.value; editado(tid); okMsg(m,tid); }));
+  m.querySelectorAll('[data-pd]').forEach(inp=>inp.addEventListener('input', e=>{ const [tid,eid]=inp.dataset.pd.split('|'); const d=td(tid); d.pd=d.pd||{}; if(e.target.value==='') delete d.pd[eid]; else d.pd[eid]=e.target.value; editado(tid); okMsg(m,tid); }));
+  m.querySelectorAll('[data-cond]').forEach(s=>s.addEventListener('change', e=>{ const [tid,k,fg]=s.dataset.cond.split('|'); const d=td(tid); d.cond=d.cond||{}; d.cond[k]=d.cond[k]||{f:0,g:0}; d.cond[k][fg]=+e.target.value; editado(tid); okMsg(m,tid); }));
+  m.querySelectorAll('[data-cuadd]').forEach(b=>b.onclick=()=>{ const d=td(b.dataset.cuadd); d.cu=d.cu||[]; d.cu.push({n:'',v:'',cl:''}); d.ok=false; persist(); render();
+    const ins=document.querySelectorAll(`[data-cu^="${b.dataset.cuadd}|${d.cu.length-1}|n"]`); if(ins[0]) ins[0].focus(); });
+  m.querySelectorAll('[data-cudel]').forEach(b=>b.onclick=()=>{ const [tid,i]=b.dataset.cudel.split('|'); td(tid).cu.splice(+i,1); td(tid).ok=false; markDirty(); persist(); render(); });
+  m.querySelectorAll('[data-confirmar]').forEach(b=>b.onclick=()=>{ const id=b.dataset.confirmar; const t=testById(id); const d=td(id);
+    const hay=filled(t).length || customOf(t).length || (d.ind||[]).length || Object.keys(d.cond||{}).length;
+    const malos=(t.esc||[]).filter(e=>fueraRango(e,d.v[e.id]));
+    if(malos.length){ toast(`Revisa ${malos.length===1?'el puntaje':'los puntajes'} fuera de rango: ${malos.map(e=>e.n).join(', ')}.`); return; }
+    if(!hay){ toast('Ingresa al menos un puntaje antes de confirmar.'); return; }
+    d.ok=true; S.activo=null; markDirty(); persist(); render(); toast(`Datos de ${t.nombre} confirmados.`);
+    const g=document.querySelector('.tgrid'); if(g) g.scrollIntoView({behavior:'smooth',block:'start'}); });
+}
+
+/* ---------- Paso 3 ---------- */
+function r3(m){
+  const n=PAUTA.reduce((a,g)=>a+g.items.length,0); const hechos=Object.keys(S.obs).length;
+  const row=(attr,val,label,on,sq)=>`<button type="button" class="orow ${sq?'sq':''}" role="${sq?'checkbox':'radio'}" aria-checked="${on}" ${attr}="${esc(val)}"><span class="dot"></span><span>${esc(label)}</span></button>`;
+  m.innerHTML=`
+  <section class="panel">
+    <h2>Pauta de observación conductual</h2>
+    <p class="lead">Registra lo observado durante la aplicación de las pruebas. <b>${hechos} de ${n}</b> aspectos marcados. Los aspectos sin marcar no se incluyen en el informe; para desmarcar, vuelve a pinchar la opción.</p>
+    ${PAUTA.map((gr,gi)=>{ const hg=gr.items.filter(it=>S.obs[it.id]).length; return `
+    <div class="ogrp">
+      <div class="ogrp-h"><b>${gi+1}. ${esc(gr.g)}</b><span>${hg}/${gr.items.length}</span></div>
+      <div class="olist">${gr.items.map(it=>`
+        <div class="ocard ${S.obs[it.id]?'done':''}" role="radiogroup" aria-label="${esc(it.q)}">
+          <h4>${esc(it.q)}${S.obs[it.id]?'<small>✓</small>':''}</h4>
+          ${it.o.map(([k,l])=>row('data-ob',it.id+'|'+k,l,S.obs[it.id]===k,false)).join('')}
+        </div>`).join('')}</div>
+    </div>`; }).join('')}
+  </section>
+  <section class="panel">
+    <h2>Condiciones de la evaluación</h2>
+    <div class="ogrp" style="margin-top:8px">
+      <div class="ogrp-h"><b>Factores que podrían incidir en los resultados</b><span>${S.factores.length} marcados</span></div>
+      <div class="olist two" style="margin-top:8px">${FACTORES.map(fc=>row('data-fac',fc,fc,S.factores.includes(fc),true)).join('')}</div>
+    </div>
+    <div class="ogrp">
+      <div class="ogrp-h"><b>Validez de los resultados</b></div>
+      <div class="olist two" style="margin-top:8px" role="radiogroup">${[['rep','Representativos del funcionamiento habitual'],['cau','Deben interpretarse con cautela']].map(([k,l])=>row('data-val',k,l,S.validez===k,false)).join('')}</div>
+    </div>
+    <div class="fld" style="margin-top:16px"><label for="oTxt">Observación adicional (opcional)</label><textarea id="oTxt" placeholder="Algún aspecto relevante no incluido en la pauta">${esc(S.obsTxt)}</textarea></div>
+  </section>
+  ${navFoot(1,3,'Redactar informe')}`;
+  const keep=fn=>{ const y=window.scrollY; fn(); render(); window.scrollTo(0,y); };
+  m.querySelectorAll('[data-ob]').forEach(b=>b.onclick=()=>keep(()=>{ const [id,k]=b.dataset.ob.split('|'); if(S.obs[id]===k) delete S.obs[id]; else S.obs[id]=k; markDirty(); persist(); }));
+  m.querySelectorAll('[data-fac]').forEach(b=>b.onclick=()=>keep(()=>{ const v=b.dataset.fac; const i=S.factores.indexOf(v); if(i>=0) S.factores.splice(i,1); else S.factores.push(v); markDirty(); persist(); }));
+  m.querySelectorAll('[data-val]').forEach(b=>b.onclick=()=>keep(()=>{ S.validez=b.dataset.val; markDirty(); persist(); }));
+  m.querySelector('#oTxt').addEventListener('input', e=>{ S.obsTxt=e.target.value; markDirty(); persist(); });
+  bindNav(m);
+}
+
+/* ============================================================
+   MOTOR DE REDACCIÓN
+   ============================================================ */
+function customOf(t){ const d=S.tests[t.id]||{}; return (d.cu||[]).filter(x=>String(x.n||'').trim() && String(x.v||'').trim()).map((x,i)=>({id:'cu'+i, n:x.n.trim(), val:String(x.v).trim(), custom:true, c:{txt:String(x.cl||'').trim(), lvl: String(x.cl||'').trim()?1:-1}})); }
+function confSel(){ return S.sel.filter(id=>S.tests[id] && S.tests[id].ok); }
+function filled(t){ const d=S.tests[t.id]||{v:{}}; return (t.esc||[]).map(e=>effE(t,e)).filter(e=>{ const v=d.v[e.id]; return v!==''&&v!=null&&!isNaN(Number(v))&&!fueraRango(e,v); }).map(e=>({...e, val:Number(d.v[e.id]), c:clasif(e,Number(d.v[e.id]))})); }
+
+function interpWechsler(t, f){
+  const P=[]; const n=nombreCorto();
+  const cit=f.find(e=>e.idx==='CIT'); const idxs=f.filter(e=>e.idx && e.idx!=='CIT'); const subs=f.filter(e=>e.sub);
+  if(cit){
+    const pc=percentil((cit.val-100)/15);
+    const pos = cit.val>=110?'por sobre lo esperado':(cit.val>=90?'dentro de lo esperado':(cit.val>=80?'levemente por debajo de lo esperado':'significativamente por debajo de lo esperado'));
+    P.push(`${n} obtiene un Coeficiente Intelectual Total (CIT) de ${cit.val}, que se ubica en la categoría <b>${cit.c.txt}</b> y ${g('lo','la','lo/la')} sitúa aproximadamente en el percentil ${pc}. Esto indica que su funcionamiento intelectual general se encuentra ${pos} para su edad.`);
+  }
+  if(idxs.length){
+    const s=[...idxs].sort((a,b)=>b.val-a.val);
+    P.push(`En el análisis por índices, obtiene: ${idxs.map(e=>`${IDX[e.idx].n.replace(/ \(.*\)/,'')}, ${e.val} (${e.c.txt.toLowerCase()})`).join('; ')}.`);
+    if(s.length>=2){
+      const hi=s[0], lo=s[s.length-1], dif=hi.val-lo.val;
+      const nm=k=>'el '+IDX[k].n.replace(/ \(.*\)/,'');
+      if(dif<5){
+        P.push(`Los índices presentan un desempeño similar entre sí, por lo que el CIT representa adecuadamente su funcionamiento intelectual general.`);
+        const bj=idxs.filter(e=>e.val<85 && IDX[e.idx].aula);
+        if(bj.length) P.push(`Dado el nivel de desempeño en los distintos índices, en el aula podrían presentarse dificultades para ${listaY(bj.map(e=>IDX[e.idx].aula.split(/,| y /)[0]))}.`);
+      } else {
+      P.push(`${hi.val>=90?'Su principal recurso se observa en':'Su mejor desempeño relativo se observa en'} ${nm(hi.idx)}, que evalúa ${IDX[hi.idx].d}. El área de menor desempeño corresponde al ${nm(lo.idx).slice(3)}, que evalúa ${IDX[lo.idx].d}${lo.val<90&&IDX[lo.idx].aula?`; en el aula, esto podría manifestarse en dificultades para ${IDX[lo.idx].aula}`:''}.`);
+      if(dif>=23) P.push(`La diferencia de ${dif} puntos entre ambos índices da cuenta de un perfil cognitivo heterogéneo, por lo que el CIT debe interpretarse con cautela y es preferible considerar el perfil por índices para orientar los apoyos.`);
+      else if(dif>=15) P.push(`La diferencia de ${dif} puntos entre ambos índices es significativa y sugiere un perfil con fortalezas y debilidades relativas que conviene considerar en la planificación de los apoyos.`);
+      else P.push('El perfil de índices es relativamente homogéneo, por lo que el CIT representa adecuadamente su funcionamiento intelectual general.');
+      const bajos=idxs.filter(e=>e.val<85 && e!==lo && IDX[e.idx].aula);
+      if(bajos.length) P.push(`También se observa un desempeño descendido en ${listaY(bajos.map(e=>nm(e.idx)))}, lo que podría generar dificultades para ${listaY(bajos.map(e=>IDX[e.idx].aula.split(/,| y /)[0]))}.`);
+      }
+    }
+  }
+  if(subs.length){
+    const fort=subs.filter(e=>e.val>=14).map(e=>e.n), deb=subs.filter(e=>e.val<=6).map(e=>e.n);
+    if(fort.length) P.push(`A nivel de subpruebas, destaca su desempeño en ${listaY(fort)}.`);
+    if(deb.length) P.push(`${fort.length?'Por otra parte, ':'A nivel de subpruebas, '}presenta puntajes descendidos en ${listaY(deb)}.`);
+  }
+  return P;
+}
+function interpTScores(t, f, inf){
+  const P=[]; const pref = inf? `Según la información aportada por ${infTxt(inf)}, ` : 'Los resultados indican que ';
+  const sig=f.filter(e=>e.c.lvl===3), rie=f.filter(e=>e.c.lvl===2), fort=f.filter(e=>e.c.lvl===0 && e.t!=='tConn');
+  const name=e=>escName(e.n);
+  const it=e=>`${name(e)} (T=${e.val}, ${e.c.txt.toLowerCase()})`;
+  if(sig.length) P.push(`${pref}se observan puntuaciones que indican <b>dificultades significativas</b> en ${listaY(sig.map(it))}.`);
+  if(rie.length) P.push(`${sig.length?'Asimismo, se':pref+'se'} observan puntuaciones <b>en rango de riesgo o precaución</b> en ${listaY(rie.map(it))}.`);
+  if(fort.length) P.push(`Se identifican como recursos ${listaY(fort.map(it))}.`);
+  if(!sig.length && !rie.length) P.push(fort.length? 'No se observan indicadores de dificultad en las escalas evaluadas.' : `${pref}las puntuaciones obtenidas se encuentran dentro de lo esperado para su edad, sin indicadores de dificultad relevantes en las escalas evaluadas.`);
+  else if(sig.length+rie.length+fort.length < f.length) P.push('Las demás escalas evaluadas se encuentran dentro del rango esperado.');
+  return P;
+}
+function interpTest(t){
+  const f=filled(t); const d=S.tests[t.id]||{x:{},ind:[],nota:''}; const n=nombreCorto(); const P=[];
+  const inf=d.x&&d.x.inf;
+  if(t.wechsler) P.push(...interpWechsler(t,f));
+  else if(t.id==='raven'){
+    const pc=f.find(e=>e.id==='pc'), pd=f.find(e=>e.id==='pd');
+    if(pc) P.push(`${d.x.forma?`Se aplicó la ${d.x.forma.replace(/ \(.*\)/,'')}. `:''}${n} obtiene ${pd?`un puntaje directo de ${pd.val}, equivalente a `:''}un percentil ${pc.val}, ubicándose en el <b>${pc.c.txt}</b>, lo que indica una capacidad de razonamiento no verbal ${pc.c.lvl===0?'superior a la esperada':pc.c.lvl===1?'acorde a lo esperado':pc.c.lvl===2?'inferior al término medio':'significativamente descendida'} para su edad.`);
+  }
+  else if(t.id==='vsms'){
+    const pt=f.find(e=>e.id==='pt'), es=f.find(e=>e.id==='es'), ec=f.find(e=>e.id==='ec'), cs=f.find(e=>e.id==='cs');
+    const am=m=>{ const y=Math.floor(m/12), r=m%12; return `${y} año${y===1?'':'s'}${r?` ${r} mes${r===1?'':'es'}`:''}`; };
+    if(inf) P.push(`La entrevista fue respondida por ${infTxt(inf)}.`);
+    if(pt||es) P.push(`${pt?`Obtiene un puntaje total de ${pt.val}`:''}${pt&&es?', que corresponde a ':''}${es?`${pt?'':'Alcanza '}una edad social de ${am(es.val)}`:''}${ec?`, frente a una edad cronológica de ${am(ec.val)}`:''}.`);
+    if(cs) P.push(`Su cociente social es de ${cs.val}, lo que corresponde a la categoría <b>${cs.c.txt.toLowerCase()}</b>${cs.val<90?', indicando que su nivel de independencia y competencia social se encuentra por debajo de lo esperado para su edad':''}.`);
+    P.push('Esta escala se interpreta como una medida del desarrollo de la competencia social; su adaptación chilena es de larga data, por lo que se recomienda complementarla con un instrumento de conducta adaptativa con normas actualizadas.');
+  }
+  else if(t.id==='vineland'){
+    const x=d.x||{}; if(x.ed||x.forma||inf||x.bar) P.push(`Se aplicó ${x.ed?'la '+x.ed:'la escala'}${x.forma?' en su forma '+x.forma.toLowerCase():''}${inf?`, con información aportada por ${infTxt(inf)}`:''}${x.bar?`, utilizando baremo ${x.bar.replace(/ \(.*\)/,'').toLowerCase()}`:''}.`);
+    if((x.bar||'').startsWith('Estadounidense')) P.push('Dado que los puntajes se obtuvieron con normas estadounidenses, deben interpretarse con cautela en población chilena.');
+    const ica=f.find(e=>e.id==='ica'), dom=f.filter(e=>['com','hvd','soc','mot'].includes(e.id)), subs=f.filter(e=>e.sub), mal=f.filter(e=>e.t==='vinMal');
+    if(ica) P.push(`Obtiene un Índice de Conducta Adaptativa de ${ica.val}, que corresponde a un nivel adaptativo <b>${ica.c.txt.toLowerCase()}</b> (percentil aproximado ${percentil((ica.val-100)/15)}).`);
+    if(dom.length){ P.push(`Por dominios obtiene: ${dom.map(e=>`${lowerFirst(e.n.replace('Dominio ','').replace(/ \(.*\)/,''))}, ${e.val} (${e.c.txt.toLowerCase()})`).join('; ')}.`);
+      const s2=[...dom].sort((a,b)=>b.val-a.val); if(s2.length>1 && s2[0].val-s2[s2.length-1].val>=15) P.push(`Se observa una diferencia relevante entre ${lowerFirst(s2[0].n.replace('Dominio ',''))}, su área de mayor desarrollo, y ${lowerFirst(s2[s2.length-1].n.replace('Dominio ','').replace(/ \(.*\)/,''))}, el área que requiere mayor apoyo.`); }
+    const bj=subs.filter(e=>e.val<=9).map(e=>e.n.toLowerCase()), al=subs.filter(e=>e.val>=18).map(e=>e.n.toLowerCase());
+    if(al.length) P.push(`${al.length===1?'Su principal fortaleza a nivel de subdominios es':'Sus principales fortalezas a nivel de subdominios son'} ${listaY(al)}.`);
+    if(bj.length) P.push(`Presenta un nivel bajo en ${listaY(bj)}.`);
+    if(mal.length){ const sg=mal.filter(e=>e.c.lvl>=2); P.push(sg.length? `En conducta desadaptativa se observan puntuaciones ${listaY(sg.map(e=>`en rango ${e.c.txt.toLowerCase()} en ${lowerFirst(e.n.replace('Conducta desadaptativa · ','').replace('Índice de conducta desadaptativa','el índice global'))} (v=${e.val})`))}.` : 'Las puntuaciones de conducta desadaptativa se encuentran en el rango promedio.'); }
+  }
+  else if(t.id==='icapcl'){
+    if(inf) P.push(`La entrevista fue respondida por ${infTxt(inf)}.`);
+    if(f.length){ P.push(`Obtiene los siguientes puntajes directos: ${f.map(e=>`${ICAPCL[e.id].n.replace(/ \(.*\)/,'').toLowerCase()}, ${e.val} de ${ICAPCL[e.id].max} puntos (${icapclCentil(e.id,e.val)})`).join('; ')}.`);
+      const bajo=f.filter(e=>e.val<=ICAPCL[e.id].corte);
+      P.push(bajo.length? `Presenta puntuaciones iguales o inferiores al punto de corte (centil 20) en ${listaY(bajo.map(e=>ICAPCL[e.id].n.replace(/ \(.*\)/,'').toLowerCase()))}. De acuerdo con el manual de la versión chilena, esto ${g('lo','la','lo/la')} sitúa como ${g('candidato','candidata','candidato/a')} a una evaluación exhaustiva y al diseño de apoyos en conducta adaptativa.`
+        : 'No presenta puntuaciones bajo el punto de corte (centil 20) en las escalas evaluadas, por lo que su conducta adaptativa se encuentra dentro de lo esperado según la norma chilena.'); }
+    const cond=(d.cond||{}); const rel=ICAPCL.conductas.filter(([k])=>cond[k] && (+cond[k].f>0)).map(([k,n])=>({n, f:+cond[k].f, g:+cond[k].g}));
+    if(Object.keys(cond).length){ const sig=rel.filter(x=>x.g>=2);
+      P.push(!rel.length? 'No se informan problemas de conducta.' : `En problemas de conducta se informa: ${rel.map(x=>`${x.n.toLowerCase()} (${ICAPCL.frec[x.f].toLowerCase()}; ${ICAPCL.grav[x.g].toLowerCase()})`).join('; ')}.${sig.length?` ${sig.length===1?'Esta conducta se considera':'Estas conductas se consideran'} de gravedad media o superior y ${sig.length===1?'requiere':'requieren'} abordaje: ${listaY(sig.map(x=>x.n.toLowerCase()))}.`:''}`); }
+  }
+  else if(t.id==='abas2'){
+    if(inf) P.push(`El cuestionario fue respondido por ${infTxt(inf)}.`);
+    const cgc=f.find(e=>e.id==='cgc'), dom=f.filter(e=>['con','soc','pra'].includes(e.id)), subs=f.filter(e=>e.sub);
+    if(cgc) P.push(`Obtiene un Índice de Conducta Adaptativa General de ${cgc.val}, ubicado en la categoría <b>${cgc.c.txt}</b> (percentil aproximado ${percentil((cgc.val-100)/15)}).`);
+    if(dom.length) P.push(`En los índices de dominio obtiene: ${dom.map(e=>`${e.n.replace('Índice ','')} ${e.val} (${e.c.txt.toLowerCase()})`).join('; ')}.`);
+    const deb=subs.filter(e=>e.val<=5).map(e=>e.n.toLowerCase()), fort=subs.filter(e=>e.val>=13).map(e=>e.n.toLowerCase());
+    if(fort.length) P.push(`Entre sus habilidades más desarrolladas se encuentran ${listaY(fort)}.`);
+    if(deb.length) P.push(`Las áreas que requieren mayor apoyo son ${listaY(deb)}.`);
+  }
+  else if(t.id==='tadi'||t.id==='tepsi'){
+    const tot=f.find(e=>e.id==='tot'), dims=f.filter(e=>e.id!=='tot');
+    if(tot) P.push(`${n} obtiene un puntaje T total de ${tot.val}, que corresponde a la categoría <b>${tot.c.txt}</b>.`);
+    if(dims.length){ const alt=dims.filter(e=>e.c.lvl>=2); P.push(`Por dimensiones: ${dims.map(e=>`${e.n} T=${e.val} (${e.c.txt.toLowerCase()})`).join('; ')}.`);
+      if(alt.length) P.push(`Las dimensiones de ${listaY(alt.map(e=>e.n.toLowerCase()))} requieren estimulación y seguimiento.`);
+      const dimRR=dims.filter(e=>/Riesgo|Retraso/.test(e.c.txt));
+      if(t.id==='tadi' && tot && dimRR.length && tot.c.lvl<=1){
+        P.push(((d.x||{}).ed==='TADI-2')
+          ? 'Aunque el puntaje total se ubica en rango normal, al presentar al menos una dimensión en riesgo o retraso el resultado global corresponde a la categoría <b>Alerta</b>, por lo que se recomienda seguimiento o evaluación complementaria.'
+          : 'Aunque el puntaje total se ubica en rango normal, la presencia de al menos una dimensión en riesgo o retraso configura un perfil <b>normal con rezago</b>, que requiere seguimiento.'); } }
+  }
+  else if(['sena','basc3','conners3','brief2','piers'].includes(t.id)) P.push(...interpTScores(t,f,inf));
+  else if(t.id==='enfen'){
+    const bajo=f.filter(e=>e.c.lvl>=2), alto=f.filter(e=>e.c.lvl===0);
+    if(f.length) P.push(`En las pruebas de funciones ejecutivas obtiene: ${f.map(e=>`${e.n.toLowerCase()} decatipo ${e.val} (${e.c.txt.toLowerCase()})`).join('; ')}.`);
+    if(bajo.length) P.push(`Se observa un rendimiento descendido en ${listaY(bajo.map(e=>e.n.toLowerCase()))}.`);
+    if(alto.length) P.push(`Destaca su rendimiento en ${listaY(alto.map(e=>e.n.toLowerCase()))}.`);
+  }
+  else if(t.id==='cdi'){
+    const tot=f[0]; if(tot) P.push(tot.c.lvl===3? `Obtiene un puntaje total de ${tot.val}, que se ubica <b>sobre el punto de corte</b> (19), lo que indica la presencia de sintomatología depresiva que debe ser explorada en profundidad.` : `Obtiene un puntaje total de ${tot.val}, bajo el punto de corte, sin indicadores significativos de sintomatología depresiva en el autoinforme.`);
+  }
+  else if(t.id==='mchat'){ const tot=f[0]; const seg=(d.x||{}).seg||'';
+    if(tot){ let s=`Obtiene un puntaje total de ${tot.val}, correspondiente a <b>${tot.c.txt.toLowerCase().replace(/ \(.*\)/,'')}</b>.`;
+      if(tot.val>=8) s+=' Según el algoritmo del instrumento, corresponde derivar a evaluación diagnóstica y atención temprana.';
+      else if(tot.val>=3){ s+= seg.startsWith('Positiva')? ' La entrevista de seguimiento resultó positiva, por lo que se recomienda derivar a evaluación diagnóstica.' : seg.startsWith('Negativa')? ' La entrevista de seguimiento resultó negativa; se recomienda mantener la vigilancia del desarrollo.' : ' Corresponde aplicar la entrevista de seguimiento para precisar el resultado.'; }
+      else s+=' Se recomienda mantener la vigilancia del desarrollo y, si es menor de 24 meses, repetir el tamizaje a los 24 meses.';
+      P.push(s); } }
+  else if(t.id==='scq'){ const tot=f[0]; const fb=(d.x.forma||'').startsWith('Forma B');
+    if(tot) P.push(fb ? `Se aplicó la Forma B (Actual) y obtiene un puntaje total de ${tot.val}. El punto de corte de 15 está validado para la Forma A (Toda la vida), por lo que este resultado se interpreta de manera descriptiva.`
+      : `${d.x.forma?'Se aplicó la Forma A (Toda la vida). ':''}Obtiene un puntaje total de ${tot.val}, que se ubica ${tot.c.lvl===3?'<b>sobre el punto de corte</b> (15), lo que indica la posible presencia de indicadores del espectro autista que ameritan una evaluación más profunda':'bajo el punto de corte (15)'}.`); }
+  else if(t.id==='ados2'){
+    const c=f.find(e=>e.id==='comp'), as=f.find(e=>e.id==='as'), crr=f.find(e=>e.id==='crr');
+    P.push(`${d.x.mod?`Se aplicó el ${d.x.mod}. `:''}${as||crr?`Obtiene ${[as?`${as.val} puntos en afectación social`:'',crr?`${crr.val} puntos en comportamiento restringido y repetitivo`:''].filter(Boolean).join(' y ')}. `:''}${c?`El puntaje comparativo es ${c.val}, que indica un <b>${c.c.txt.toLowerCase()}</b> relacionados con el espectro autista, en comparación con niños con TEA de la misma edad y nivel de lenguaje. `:''}${d.x.clas?(d.x.clas.startsWith('Preocupación')?`El rango de preocupación corresponde a <b>${d.x.clas.toLowerCase()}</b>.`:`La clasificación del algoritmo corresponde a <b>${d.x.clas}</b>.`):''}`);
+  }
+  else if(t.id==='adir'){
+    const sobre=f.filter(e=>e.c.lvl===3), bajo=f.filter(e=>e.c.lvl!==3);
+    if(sobre.length) P.push(`Se superan los puntos de corte en ${listaY(sobre.map(e=>`${e.n.replace(/^\w+ · /,'').replace(/ \(([^)]+)\)/,' $1').toLowerCase()} (${e.val})`))}.`);
+    if(bajo.length) P.push(`No se alcanza el punto de corte en ${listaY(bajo.map(e=>`${e.n.replace(/^\w+ · /,'').replace(/ \(([^)]+)\)/,' $1').toLowerCase()} (${e.val})`))}.`);
+    const dom=id=>f.find(e=>e.id===id); const bOk=(dom('bv')&&dom('bv').c.lvl===3)||(dom('bn')&&dom('bn').c.lvl===3);
+    if(dom('a')&&dom('c')&&(dom('bv')||dom('bn'))){ const todos=dom('a').c.lvl===3 && bOk && dom('c').c.lvl===3 && (!dom('d')||dom('d').c.lvl===3);
+      P.push(todos? 'Se alcanzan los puntos de corte en todos los dominios del algoritmo diagnóstico, resultado compatible con el espectro autista.' : 'No se alcanzan los puntos de corte en todos los dominios del algoritmo diagnóstico.'); }
+  }
+  if(t.proj){
+    const ie=f.find(e=>e.id==='ie');
+    if(ie) P.push(`Presenta ${ie.val} indicador${ie.val===1?'':'es'} emocional${ie.val===1?'':'es'} según Koppitz, lo que ${ie.c.lvl===3?'se considera clínicamente significativo':'no resulta clínicamente significativo'}.`);
+    const rw=f.filter(e=>e.t==='raw');
+    if(rw.length) P.push(`En la corrección del dibujo se registran: ${listaY(rw.map(e=>`${e.n.replace(/ \(n°\)/,'').toLowerCase()} (${e.val})`))}.`);
+    if(d.ind.length) P.push(`En la producción gráfica se observan: ${listaY(d.ind.map(x=>x.toLowerCase()))}. Estos indicadores deben interpretarse de manera complementaria al resto de la evaluación y no de forma aislada.`);
+  }
+  const cu=customOf(t);
+  if(cu.length) P.push(`${P.length?'Además, se registran':'Se registran'} los siguientes puntajes: ${cu.map(e=>`${esc(e.n)}, ${esc(e.val)}${e.c.txt?` (${esc(e.c.txt.toLowerCase())})`:''}`).join('; ')}.`);
+  if(d.nota) P.push(esc(d.nota).replace(/\.?$/,'.'));
+  if(!P.length) P.push('<i>Sin puntajes ingresados para esta prueba.</i>');
+  return P;
+}
+
+function textoObservacion(){
+  const n=nombreCorto(); const fix=s=>s.replace(/o\/a\b/g, g('o','a','o/a'));
+  const suj=(S.ident&&S.ident.nombre||'').trim()? n : g('el estudiante','la estudiante','el/la estudiante');
+  const intro=['Durante la evaluación, '+suj+' ','En cuanto a su actitud y regulación, ','Durante la realización de las tareas, '];
+  const P=[];
+  PAUTA.forEach((gr,i)=>{ const fr=gr.items.map(it=>{ const o=it.o.find(x=>x[0]===S.obs[it.id]); return o?o[2]:null; }).filter(Boolean);
+    if(fr.length) P.push(fix(intro[i]+listaY(fr)+'.')); });
+  if(S.factores.length) P.push(`Se consideran como condiciones de la evaluación: ${listaY(S.factores.map(x=>x.toLowerCase()))}.`);
+  if(S.obsTxt) P.push(esc(S.obsTxt).replace(/\.?$/,'.'));
+  P.push(S.validez==='rep'? 'Considerando lo observado, los resultados obtenidos se estiman representativos de su funcionamiento habitual.' : 'Considerando lo observado, los resultados obtenidos deben interpretarse con cautela, ya que podrían no reflejar plenamente su funcionamiento habitual.');
+  return P;
+}
+
+/* Síntesis e hipótesis integradas */
+function buildEvidencePacket(){
+  const tests=confSel().map(testById);
+  const packet={
+    contexto:{
+      identificacion:{nombre:'[NOMBRE]',rut:S.ident.rut,fnac:S.ident.fnac,fechaEvaluacion:S.ident.feval,sexo:S.ident.sexo,nivel:S.ident.nivel,curso:S.ident.curso,establecimiento:S.ident.establecimiento},
+      tipoEvaluacion:S.ident.tipo,motivos:S.ident.motivos,motivoOtro:S.ident.motivoOtro,antecedentes:S.ident.antec,antecedentesTexto:S.ident.antecTxt,
+      edad:edadTxt(edadMeses()),factores:S.factores,validez:S.validez,observacionLibre:S.ident.obsTxt||''
+    },
+    observacion:{seleccionada:S.obs, texto:textoObservacion()},
+    instrumentos:[]
+  };
+  for(const t of tests){
+    const d=S.tests[t.id]||{};
+    packet.instrumentos.push({
+      id:t.id,nombre:t.nombre,area:t.area,descripcion:t.desc,sub:t.sub,
+      opciones:d.x||{},puntajes:filled(t).map(e=>({id:e.id,nombre:e.n,valor:e.val,clasificacion:e.c&&e.c.lvl>=0?e.c.txt:'',nivel:e.c?e.c.lvl:null})),
+      personalizados:customOf(t),indicadores:d.ind||[],nota:d.nota||'',confirmado:!!d.ok
+    });
+  }
+  return packet;
+}
+
+function analisis(){
+  const packet=buildEvidencePacket();
+  const R={flags:{},frases:[],cierre:'La interpretación debe realizarse considerando el conjunto de antecedentes disponibles, el contexto educativo y familiar y la información aportada por otros profesionales del equipo, evitando establecer conclusiones diagnósticas a partir de un único indicador.'};
+  const confirmed=packet.instrumentos.filter(x=>x.confirmado);
+  const names=confirmed.map(x=>x.nombre);
+  if(!confirmed.length){ R.frases.push('No se registran instrumentos confirmados en esta evaluación. La información disponible no permite establecer una interpretación psicológica específica.'); return R; }
+  const intellectual=confirmed.filter(x=>/WISC|WAIS|WPPSI|Raven/i.test(x.nombre));
+  const adaptive=confirmed.filter(x=>/ICAP|ABAS|Vineland|Madurez Social/i.test(x.nombre));
+  const attention=confirmed.filter(x=>/SENA|BASC|Conners|BRIEF/i.test(x.nombre));
+  const tea=confirmed.filter(x=>/M-CHAT|SCQ|ADOS|ADI-R/i.test(x.nombre));
+  const emo=confirmed.filter(x=>/SENA|BASC|CDI|Piers-Harris/i.test(x.nombre));
+  const projective=confirmed.filter(x=>x.area==='Proyectivo');
+  if(intellectual.length){
+    const cit=intellectual.flatMap(x=>x.puntajes).find(e=>/CIT|Coeficiente Intelectual Total|Total/i.test(e.nombre));
+    if(cit && cit.valor!==''){
+      R.frases.push(`En el ámbito cognitivo, ${cit.nombre} presenta un resultado de ${cit.valor}${cit.clasificacion?`, correspondiente a la clasificación registrada como ${cit.clasificacion}`:''}. Este resultado describe el desempeño observado en el instrumento aplicado y debe interpretarse junto con el funcionamiento adaptativo, los antecedentes del desarrollo y el desempeño funcional.`);
+      if(adaptive.length) R.frases.push(`La presencia de antecedentes de conducta adaptativa permite complementar la interpretación del funcionamiento cognitivo. La convergencia o discrepancia entre ambas fuentes debe ser analizada por el equipo antes de formular una hipótesis diagnóstica.`);
+      else R.frases.push('No se registra en esta evaluación un instrumento de conducta adaptativa confirmado; por ello, no corresponde inferir por sí solo una condición diagnóstica a partir del resultado cognitivo.');
+    }
+  }
+  if(attention.length){
+    const elevated=attention.flatMap(x=>x.puntajes).filter(e=>e.nivel===3 || /alto|elevado|clínico/i.test(e.clasificacion||''));
+    if(elevated.length){ R.flags.tdah=true; R.frases.push(`En el ámbito atencional y/o ejecutivo se observan indicadores elevados en ${listaY([...new Set(elevated.slice(0,5).map(e=>e.nombre))])}. Estos resultados constituyen señales de atención que deben contrastarse con la observación, el funcionamiento cotidiano, la información de familia y escuela y la presencia de dificultades en más de un contexto; por sí solos no permiten establecer un diagnóstico.`); }
+  }
+  if(tea.length){
+    const ind=tea.flatMap(x=>x.puntajes).filter(e=>e.nivel===3 || /autismo|espectro|preocupación moderada|preocupación severa|riesgo/i.test(e.clasificacion||''));
+    if(ind.length){ R.flags.tea=true; R.frases.push(`En los instrumentos relacionados con comunicación social y características del espectro autista se registran ${ind.length} indicador(es) que requieren integración clínica y evolutiva. La interpretación debe distinguir entre instrumentos de tamizaje, evaluación descriptiva y procedimientos diagnósticos, sin considerar un resultado aislado como diagnóstico.`); }
+  }
+  if(emo.length){
+    const ind=emo.flatMap(x=>x.puntajes).filter(e=>e.nivel===3 || /alto|elevado|clínico|bajo/i.test(e.clasificacion||''));
+    if(ind.length){ R.flags.emo=true; R.frases.push(`En el ámbito socioemocional se identifican resultados que requieren atención en ${listaY([...new Set(ind.slice(0,6).map(e=>e.nombre))])}. Su significado debe contextualizarse considerando la observación, los antecedentes recientes y el funcionamiento del/la estudiante en los distintos espacios educativos y familiares.`); }
+  }
+  if(projective.length){ R.frases.push('Las técnicas gráficas/proyectivas, cuando fueron utilizadas, se consideran antecedentes complementarios. Sus indicadores no deben utilizarse de manera aislada para establecer diagnósticos, sino como elementos que pueden orientar preguntas y focos de exploración dentro de una evaluación integral.'); }
+  const obs=packet.observacion.texto||[];
+  if(obs.length) R.frases.push('La observación conductual aporta información funcional sobre la forma en que el/la estudiante enfrentó las tareas, su respuesta a las demandas de evaluación y las condiciones que pudieron favorecer o dificultar su desempeño.');
+  if(!R.frases.length) R.frases.push(`Se cuenta con resultados de ${listaY(names)}. Los antecedentes disponibles deben integrarse con la observación y el contexto educativo antes de establecer conclusiones específicas.`);
+  return R;
+}
+
+function sugerencias(R){
+  const E=[], F=[], Es=[];
+  const add=(arr,s)=>{ if(!arr.includes(s)) arr.push(s); };
+  if(R.flags.di||R.flags.fil||R.flags.razBajo){
+    add(E,'Presentar los contenidos de forma concreta y graduada, apoyándose en material manipulativo y visual.');
+    add(E,'Fragmentar las tareas extensas en pasos cortos y verificar la comprensión de las instrucciones.');
+    add(E,'Considerar la elaboración de un Plan de Apoyo Individual (PAI) y, si corresponde, un Plan de Adecuaciones Curriculares Individualizado (PACI) según el Decreto N°83/2015.');
+    add(F,'Fomentar la autonomía en actividades de la vida diaria, asignando responsabilidades acordes a su edad.');
+  }
+  if(R.flags.iclBajo) add(E,`Diseñar apoyos específicos en conducta adaptativa, priorizando ${listaY(R.flags.iclBajo)}, en coordinación con la familia.`);
+  if(R.flags.faltaCA) add(E,'Completar la evaluación de conducta adaptativa (ICAP o ABAS-II) para concluir el proceso diagnóstico.');
+  if(R.flags.idx_IMT) add(E,'Entregar las instrucciones de a una, apoyadas por escrito o con imágenes, y reducir la carga de memoria en tareas complejas.');
+  if(R.flags.idx_IVP) add(E,'Otorgar tiempo adicional en evaluaciones y evitar la copia extensa desde la pizarra.');
+  if(R.flags.idx_ICV) add(E,'Anticipar el vocabulario nuevo de cada unidad y apoyar las explicaciones orales con organizadores gráficos.');
+  if(R.flags.idx_IVE) add(E,'Utilizar apoyos visuales estructurados en tareas geométricas y en la organización espacial del cuaderno.');
+  if(R.flags.idx_IRF||R.flags.idx_IRP) add(E,'Modelar paso a paso la resolución de problemas nuevos, explicitando las estrategias utilizadas.');
+  if(R.flags.tdah||R.flags.fe){
+    add(E,'Ubicar al/la estudiante cerca del docente y lejos de fuentes de distracción.');
+    add(E,'Establecer rutinas claras, anticipar los cambios de actividad e incorporar pausas activas breves.');
+    add(F,'Mantener horarios estables para el estudio y el descanso, con un espacio de trabajo ordenado y sin distractores.');
+    add(Es,'Usar una agenda o lista de verificación para organizar sus tareas y materiales.');
+  }
+  if(R.flags.tdah) add(F,'Solicitar evaluación médica (neurología, psiquiatría infanto-juvenil o pediatría) a través del CESFAM o prestador de salud.');
+  if(R.flags.tea){
+    add(F,'Solicitar evaluación diagnóstica con médico psiquiatra o neurólogo/a.');
+    add(E,'Anticipar las actividades mediante agendas visuales y avisar con tiempo los cambios de rutina.');
+    add(E,'Favorecer instancias estructuradas de interacción con pares, con roles definidos.');
+  }
+  if(R.flags.emo||R.flags.emoLeve||R.flags.autoc){
+    add(E,'Mantener seguimiento del estado socioemocional por parte del/la psicólogo/a y del profesor/a jefe.');
+    add(E,'Reforzar positivamente sus logros y esfuerzos, evitando la exposición pública de sus errores.');
+    add(F,'Generar espacios de conversación cotidiana en que pueda expresar sus emociones sin ser juzgado/a.');
+    add(Es,'Identificar a un adulto de confianza en el establecimiento al que pueda acudir cuando lo necesite.');
+  }
+  if(R.flags.emo) add(F,'Considerar la derivación a atención psicológica en la red de salud (CESFAM o COSAM) para apoyo especializado.');
+  if(R.flags.desarrollo){ add(F,'Realizar en el hogar actividades lúdicas de estimulación en las áreas descendidas.'); add(E,'Reevaluar el desarrollo en un plazo aproximado de seis meses.'); }
+  if(!E.length) add(E,'Mantener el seguimiento del proceso de aprendizaje en el aula regular, informando al equipo ante nuevas dificultades.');
+  if(!F.length) add(F,'Mantener una comunicación fluida con el establecimiento y acompañar el proceso escolar en el hogar.');
+  if(!Es.length) add(Es,'Pedir ayuda a su profesor/a cuando no comprenda una instrucción o una tarea.');
+  const fix=s=>s.replace(/al\/la estudiante/g, g('al estudiante','a la estudiante','al/la estudiante')).replace(/juzgado\/a/g,g('juzgado','juzgada','juzgado/a'));
+  return {E:E.map(fix),F:F.map(fix),Es:Es.map(fix)};
+}
+
+function buildDoc(){
+  const R=analisis(); const sg=sugerencias(R); const tests=confSel().map(testById);
+  return {
+    obs: textoObservacion().map(p=>`<p>${p}</p>`).join(''),
+    res: Object.fromEntries(tests.map(t=>[t.id, `<p>${esc(t.desc)}</p><p>Los resultados registrados se presentan en la tabla precedente y se interpretan considerando el propósito del instrumento, la clasificación obtenida y los antecedentes complementarios disponibles.</p>`])),
+    sintesis: R.frases.map(p=>`<p>${p}</p>`).join('') + `<p>${R.cierre}</p>`,
+    sugE:`<ul>${sg.E.map(s=>`<li>${s}</li>`).join('')}</ul>`, sugF:`<ul>${sg.F.map(s=>`<li>${s}</li>`).join('')}</ul>`, sugEs:`<ul>${sg.Es.map(s=>`<li>${s}</li>`).join('')}</ul>`, ia:false
+  };
+}
+
+/* ---------- Paso 4 ---------- */
+let sampleNS=null, downloadsNS=null;
+function resultTable(t){
+  const f=[...filled(t).filter(e=>!e.sub), ...customOf(t)]; const subs=filled(t).filter(e=>e.sub);
+  if(!f.length && !subs.length) return '';
+  const pdm=(S.tests[t.id]||{}).pd||{}; const conPD=t.pd && Object.keys(pdm).length;
+  const row=e=>`<tr><td>${esc(e.n)}</td>${conPD?`<td style="width:70px;text-align:center">${pdm[e.id]!=null?esc(pdm[e.id]):'—'}</td>`:''}<td style="width:90px;text-align:center">${esc(e.val)}</td><td style="width:210px">${e.c&&e.c.lvl>=0?esc(e.c.txt):'—'}</td></tr>`;
+  return `<table><tr><th>Escala / índice</th>${conPD?'<th style="text-align:center">P. directo</th>':''}<th style="text-align:center">${conPD?'Puntuación T':'Puntaje'}</th><th>Clasificación</th></tr>${f.map(row).join('')}${subs.length?`<tr><th colspan="${conPD?4:3}">${t.id==='vineland'?'Subdominios (escala v)':t.id==='abas2'?'Áreas de habilidad (puntaje escalar)':'Subpruebas (puntaje escalar)'}</th></tr>${subs.map(row).join('')}`:''}</table>`;
+}
+function sheetHTML(forExport){
+  const D=S.doc;
+  const ce = forExport? '' : ' contenteditable="true" spellcheck="true"';
+  const tests=confSel().map(testById);
+  const extraTxt=t=>{ const d=S.tests[t.id]||{x:{}}; return (t.extra||[]).filter(x=>d.x[x.id]).map(x=>`${x.n}: ${d.x[x.id]}`).join(' · '); };
+  return `
+  <h1>INFORME DE EVALUACIÓN PSICOLÓGICA</h1>
+  <div class="inst">Programa de Integración Escolar</div>
+  <h3>I. Instrumentos aplicados</h3>
+  <ul>${tests.map(t=>`<li>${esc(t.nombre)} — ${esc(t.sub)}${extraTxt(t)?` (${esc(extraTxt(t))})`:''}</li>`).join('')}${Object.keys(S.obs).length?'<li>Pauta de observación conductual durante la evaluación</li>':''}${!tests.length?'<li>—</li>':''}</ul>
+  <h3>II. Observación conductual</h3><div data-sec="obs"${ce}>${D.obs}</div>
+  <h3>III. Resultados</h3>
+  ${tests.map(t=>`<h4>${esc(t.nombre)} — ${esc(t.sub)}</h4>${resultTable(t)}<div data-res="${t.id}"${ce}>${D.res[t.id]||''}</div>`).join('') || '<p>—</p>'}
+  <h3>IV. Síntesis y conclusiones</h3><div data-sec="sintesis"${ce}>${D.sintesis}</div>
+  <h3>V. Sugerencias</h3>
+  <h4>Para el establecimiento y el equipo de aula</h4><div data-sec="sugE"${ce}>${D.sugE}</div>
+  <h4>Para la familia</h4><div data-sec="sugF"${ce}>${D.sugF}</div>
+  <h4>Para ${elEst()}</h4><div data-sec="sugEs"${ce}>${D.sugEs}</div>
+  <div class="firma"><div class="ln"></div><b>Nombre y firma</b><br>Psicólogo/a</div>
+  <p class="nota">Este informe es de carácter confidencial y su uso está restringido a los fines del proceso educativo del/la estudiante. Los resultados corresponden al momento de la evaluación y deben ser interpretados por profesionales competentes.</p>`;
+}
+function r4(m){
+  if(!S.doc){ S.doc=buildDoc(); S.dirty=false; }
+  m.innerHTML=`
+  <section class="panel">
+    <div class="docbar">
+      <div><h2>Informe redactado</h2><p class="lead" style="margin:0">Puedes editar cualquier párrafo directamente sobre la hoja. Los cambios se guardan automáticamente.</p></div>
+      <div class="chips">
+        <button class="btn" id="bRegen">Volver a redactar</button>
+        <button class="btn" id="bIA" ${aiDisponible()?'':'hidden'}>Mejorar redacción con IA</button>
+        <button class="btn" id="bPrint">Imprimir</button>
+        <button class="btn primary" id="bWord" ${downloadsNS?'':'hidden'}>Descargar Word</button>
+      </div>
+    </div>
+    ${S.dirty?'<div class="warnbox">Modificaste datos después de editar el informe. Usa “Volver a redactar” para incorporarlos (se perderán tus ediciones manuales).</div>':''}
+    ${(()=>{ const pend=S.sel.filter(id=>!(S.tests[id]&&S.tests[id].ok)); return pend.length?`<div class="warnbox">Instrumentos sin confirmar (no se incluyen en el informe): ${esc(pend.map(id=>testById(id).nombre).join(', '))}. Confírmalos en el paso 1 y usa “Volver a redactar”.</div>`:''; })()}
+    ${!confSel().length?'<div class="warnbox">No hay instrumentos confirmados: el informe no incluirá resultados.</div>':''}
+    ${S.doc.ia?'<div class="warnbox" style="background:var(--mid-soft);color:var(--mid)">La redacción fue revisada con IA. Verifica que el contenido refleje fielmente tus resultados antes de firmar.</div>':''}
+  </section>
+  <div class="sheetwrap"><article class="sheet" id="sheet">${sheetHTML(false)}</article></div>
+  ${navFoot(2,null,'')}`;
+  const sheet=m.querySelector('#sheet');
+  sheet.addEventListener('input', e=>{
+    const el=e.target.closest('[data-sec],[data-res]'); if(!el) return;
+    if(el.dataset.sec) S.doc[el.dataset.sec]=el.innerHTML; else S.doc.res[el.dataset.res]=el.innerHTML; S.doc.edited=true; persist();
+  });
+  m.querySelector('#bRegen').onclick=()=>{ if(S.doc.edited && !confirm('Se reemplazará el texto actual, incluidas tus ediciones. ¿Continuar?')) return; S.doc=buildDoc(); S.dirty=false; persist(); render(); toast('Informe redactado nuevamente.'); };
+  m.querySelector('#bPrint').onclick=()=>window.print();
+  m.querySelector('#bWord').onclick=descargarWord;
+  m.querySelector('#bIA').onclick=mejorarIA;
+  bindNav(m);
+}
+
+async function descargarWord(){
+  if(!downloadsNS){ toast('La descarga no está disponible en esta vista.'); return; }
+  const css=`body{font-family:Arial,sans-serif;font-size:11pt;line-height:1.4} h1{font-size:14pt;text-align:center;margin:0} .inst{text-align:center;font-size:9.5pt;color:#555;margin-bottom:14pt}
+    h3{font-size:11pt;background:#EDEBFF;border-left:4pt solid #4F46E5;padding:3pt 6pt;margin:14pt 0 5pt} h4{font-size:10.5pt;margin:9pt 0 3pt}
+    table{border-collapse:collapse;width:100%;font-size:10pt;margin:3pt 0 6pt} td,th{border:1px solid #B9B9C9;padding:3pt 5pt;text-align:left;vertical-align:top} th{background:#F3F2FF}
+    p{margin:0 0 6pt;text-align:justify} .firma{margin-top:40pt;text-align:center} .ln{width:220pt;border-top:1px solid #333;margin:0 auto 3pt} .nota{font-size:8.5pt;color:#666;margin-top:14pt}
+    @page{size:21.59cm 27.94cm;margin:2.2cm 2.2cm}`;
+  const html=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Informe psicológico</title><style>${css}</style></head><body>${sheetHTML(true)}</body></html>`;
+  try{ await downloadsNS.save({filename:`Informe_psicologico_${new Date().toISOString().slice(0,10)}.doc`, data:new Blob(['\ufeff'+html],{type:'application/msword'})}); toast('Informe descargado.'); }
+  catch(e){ if(!e||e.code!=='declined') toast('No se pudo generar el archivo.'); }
+}
+
+async function callConexiaAI(prompt){
+  if(window.conexiaAI && typeof window.conexiaAI.generate==='function') return await window.conexiaAI.generate(prompt);
+  if(sampleNS && typeof sampleNS.json==='function') return await sampleNS.json(prompt,{modelTier:'default'});
+  throw new Error('AI_UNAVAILABLE');
+}
+function aiDisponible(){ return !!((window.conexiaAI&&typeof window.conexiaAI.generate==='function')||sampleNS); }
+
+async function mejorarIA(){
+  if(!aiDisponible()) return;
+  const btn=$('#bIA'); btn.disabled=true; btn.textContent='Redactando…';
+  const packet=buildEvidencePacket();
+  const prompt=`Eres psicólogo/a educacional especializado/a en contexto escolar chileno y redactas informes profesionales para PIE.
+Tu tarea NO es corregir un borrador ni repetir chips. Debes interpretar e integrar evidencia estructurada.
+
+REGLAS OBLIGATORIAS:
+1. Usa exclusivamente los antecedentes entregados. No inventes puntajes, normas, diagnósticos, antecedentes familiares, conductas ni conclusiones.
+2. Conserva literalmente los valores y clasificaciones registradas.
+3. Diferencia resultado del instrumento, interpretación psicológica e hipótesis/consideración profesional.
+4. Integra convergencias y discrepancias entre instrumentos, observación, contexto y antecedentes.
+5. Un tamizaje, escala o puntaje elevado no equivale por sí mismo a un diagnóstico.
+6. Las técnicas proyectivas son antecedentes complementarios y nunca deben sostener por sí solas una conclusión diagnóstica.
+7. No conviertas la ausencia de un dato en ausencia de dificultad.
+8. Si falta evidencia suficiente, dilo de forma profesional: 'la información disponible no permite establecer...' y señala qué antecedente sería necesario complementar.
+9. No uses listas de chips ni frases del tipo 'presenta X, Y, Z'. Redacta párrafos profesionales, cohesionados y con interpretación.
+10. Mantén lenguaje prudente: 'se observa', 'se identifican indicadores', 'los resultados sugieren', 'amerita profundizar', 'debe contrastarse'.
+11. No atribuyas causalidad si los datos no la demuestran.
+12. Las sugerencias deben derivarse de los hallazgos y ser funcionales para establecimiento, familia y estudiante.
+13. Usa [NOMBRE] en lugar del nombre real.
+14. Responde SOLO JSON válido con estas claves: observacion, resultados, sintesis, sugerenciasEstablecimiento, sugerenciasFamilia, sugerenciasEstudiante.
+15. En resultados, devuelve una entrada para cada instrumento confirmado, usando exactamente su nombre.
+
+DATOS ESTRUCTURADOS:
+${JSON.stringify(packet,null,2)}`;
+  try{
+    const r=await callConexiaAI(prompt);
+    const nombre=nombreCorto();
+    const safeText=s=>String(s||'').replace(/\[NOMBRE\]/g,esc(nombre));
+    const toP=s=>safeText(s).split(/\n{2,}/).map(x=>x.trim()).filter(Boolean).map(x=>`<p>${x.replace(/\n/g,' ')}</p>`).join('');
+    const toL=s=>`<ul>${safeText(s).split(/\n/).map(x=>x.replace(/^[-•]\s*/,'').trim()).filter(Boolean).map(x=>`<li>${x}</li>`).join('')}</ul>`;
+    if(r.observacion) S.doc.obs=toP(r.observacion);
+    if(r.resultados) confSel().forEach(id=>{const n=testById(id).nombre;if(r.resultados[n]) S.doc.res[id]=`<p>${esc(testById(id).desc)}</p>`+toP(r.resultados[n]);});
+    if(r.sintesis) S.doc.sintesis=toP(r.sintesis);
+    if(r.sugerenciasEstablecimiento) S.doc.sugE=toL(r.sugerenciasEstablecimiento);
+    if(r.sugerenciasFamilia) S.doc.sugF=toL(r.sugerenciasFamilia);
+    if(r.sugerenciasEstudiante) S.doc.sugEs=toL(r.sugerenciasEstudiante);
+    S.doc.ia=true; S.doc.edited=true; persist(); render(); toast('Informe integrado y redactado con IA. Revisa antes de firmar.');
+  }catch(e){ toast(e&&e.message==='AI_UNAVAILABLE'?'La IA no está configurada en esta instalación.':'No se pudo completar la redacción con IA.'); btn.disabled=false; btn.textContent='Mejorar redacción con IA'; }
+}
+
+/* ---------- Guardados ---------- */
+function openGuardados(){
+  const all=Object.values(loadAll()).sort((a,b)=>(b.actualizado||'').localeCompare(a.actualizado||''));
+  $('#overlay').innerHTML=`<div class="drawer" id="dr"><div>
+    <div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0;font-size:1.1rem">Informes guardados</h2><button class="btn ghost sm" id="drClose">Cerrar</button></div>
+    <p class="hint">Se guardan solo en este navegador.</p>
+    ${all.length? all.map(x=>`<div class="ditem"><div><b>${esc(x.sel.map(id=>(testById(id)||{}).nombre).filter(Boolean).join(', ')||'Sin pruebas')}</b><small>${fmtFecha((x.actualizado||x.creado||'').slice(0,10))}</small></div>
+      <div class="chips"><button class="btn sm" data-open="${x.id}">Abrir</button><button class="btn sm ghost" data-del="${x.id}">Eliminar</button></div></div>`).join('') : '<p class="empty">Aún no hay informes guardados.</p>'}
+  </div></div>`;
+  const close=()=>{ $('#overlay').innerHTML=''; };
+  $('#dr').onclick=e=>{ if(e.target.id==='dr') close(); };
+  $('#drClose').onclick=close;
+  document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>{ S=loadAll()[b.dataset.open]; close(); render(); });
+  document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{ if(!confirm('¿Eliminar este informe de forma permanente?')) return; const all=loadAll(); delete all[b.dataset.del]; saveAll(all); if(S.id===b.dataset.del) S=blank(); openGuardados(); render(); });
+}
+$('#bGuardados').onclick=openGuardados;
+$('#bNuevo').onclick=()=>{ S=blank(); persist(); render(); toast('Nuevo informe iniciado.'); };
+
+render();
+(async()=>{
+  if(!window.claude || !window.claude.use) return;
+  try{ downloadsNS=await window.claude.use('downloads'); }catch(e){}
+  try{ sampleNS=await window.claude.use('sample'); }catch(e){}
+  if(S.step===3) render();
+})();
+</script>
+</body>
+</html>
